@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "mapRoot": "/",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "outDir": "dist/",
+    "rootDir": "src/",
+    "sourceMap": true,
+    "target": "es5",
+    "inlineSources": true
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "index.ts"
+  ]
+}
