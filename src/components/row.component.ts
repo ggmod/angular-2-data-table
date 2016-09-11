@@ -2,18 +2,14 @@ import {
     Component, Input, Inject, forwardRef, Output, EventEmitter, OnDestroy
 } from '@angular/core';
 import { DataTable } from './table.component';
-import { Hide } from '../utils/hide';
 import { ROW_TEMPLATE } from './row.template';
 import { ROW_STYLE } from "./row.style";
 
 
 @Component({
     selector: '[dataTableRow]',
-    providers: [],
     template: ROW_TEMPLATE,
-    styles: [ROW_STYLE],
-    directives: [Hide],
-    pipes: []
+    styles: [ROW_STYLE]
 })
 export class DataTableRow implements OnDestroy {
 

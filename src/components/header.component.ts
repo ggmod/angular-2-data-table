@@ -6,10 +6,8 @@ import { HEADER_STYLE } from "./header.style";
 
 @Component({
   selector: 'data-table-header',
-  providers: [],
   template: HEADER_TEMPLATE,
   styles: [HEADER_STYLE],
-  directives: [],
   host: {
     '(document:click)': '_closeSelector()'
   }

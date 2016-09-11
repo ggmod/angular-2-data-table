@@ -3,14 +3,11 @@ import {
     TemplateRef, ContentChild, ViewChildren, OnInit
 } from '@angular/core';
 import { DataTableColumn } from './column.component';
-import { DataTableHeader } from './header.component';
 import { DataTableRow } from './row.component';
-import { DataTablePagination } from './pagination.component';
 import { DataTableParams } from './types';
 import { PixelConverter } from '../utils/px';
 import { RowCallback } from './types';
 import { DataTableTranslations, defaultTranslations } from './types';
-import { Hide } from '../utils/hide';
 import { drag } from '../utils/drag';
 import { TABLE_TEMPLATE } from './table.template';
 import { TABLE_STYLE } from "./table.style";
@@ -19,11 +16,8 @@ import { TABLE_STYLE } from "./table.style";
 
 @Component({
   selector: 'data-table',
-  providers: [],
   template: TABLE_TEMPLATE,
-  styles: [TABLE_STYLE],
-  directives: [DataTableHeader, DataTablePagination, DataTableRow, Hide],
-  pipes: [PixelConverter]
+  styles: [TABLE_STYLE]
 })
 export class DataTable implements DataTableParams, OnInit {
 
