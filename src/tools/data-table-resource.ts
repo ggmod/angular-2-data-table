@@ -7,7 +7,7 @@ export class DataTableResource<T> {
 
     query(params: DataTableParams, filter?: (item: T, index: number, items: T[]) => boolean): Promise<T[]> {
 
-        let result = [];
+        let result: T[] = [];
         if (filter) {
             result = this.items.filter(filter);
         } else {

@@ -10,7 +10,7 @@ export function drag(event: MouseEvent, { move: move, up: up}: {move: MoveHandle
     let y = startY;
     let moved = false;
 
-    function mouseMoveHandler(event) {
+    function mouseMoveHandler(event: MouseEvent) {
         let dx = event.pageX - x;
         let dy = event.pageY  - y;
         x = event.pageX;
@@ -22,7 +22,7 @@ export function drag(event: MouseEvent, { move: move, up: up}: {move: MoveHandle
         event.preventDefault(); // to avoid text selection
     }
 
-    function mouseUpHandler(event) {
+    function mouseUpHandler(event: MouseEvent) {
         x = event.pageX;
         y = event.pageY;
 

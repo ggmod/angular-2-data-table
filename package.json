@@ -24,14 +24,15 @@
     "url": "git://git@github.com/ggmod/angular-2-data-table.git"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0-rc.6"
+    "@angular/core": "^2.0.0"
   },
   "author": "ggmod <ggmod64@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@angular/common": "^2.0.0-rc.6",
-    "@angular/core": "^2.0.0-rc.6",
-    "@angular/forms": "^2.0.0-rc.6",
-    "rxjs": "^5.0.0-beta.12"
+    "@angular/common": "^2.0.0",
+    "@angular/core": "^2.0.0",
+    "@angular/forms": "^2.0.0",
+    "rxjs": "^5.0.0-beta.12",
+    "typescript": "^2.0.2"
   }
 }

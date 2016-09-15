@@ -5,7 +5,6 @@ import {
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
 import { DataTableParams } from './types';
-import { PixelConverter } from '../utils/px';
 import { RowCallback } from './types';
 import { DataTableTranslations, defaultTranslations } from './types';
 import { drag } from '../utils/drag';
@@ -291,7 +290,7 @@ export class DataTable implements DataTableParams, OnInit {
         this._onSelectAllChanged(value);
     }
 
-    private _onSelectAllChanged(value) {
+    private _onSelectAllChanged(value: boolean) {
         this.rows.toArray().forEach(row => row.selected = value);
     }
 
@@ -337,7 +336,7 @@ export class DataTable implements DataTableParams, OnInit {
         this._resizeInProgress = true;
 
         drag(event, {
-            move: (moveEvent: MouseEvent, dx) => {
+            move: (moveEvent: MouseEvent, dx: number) => {
                 if (this._isResizeInLimit(columnElement, dx)) {
                     column.width = columnElement.offsetWidth + dx;
                 }
