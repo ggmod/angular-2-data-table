@@ -23,7 +23,7 @@ export const ROW_TEMPLATE = `
         <div *ngIf="column.cellTemplate" [ngTemplateOutlet]="column.cellTemplate" [ngOutletContext]="{column: column, row: _this, item: item}"></div>
     </td>
 </tr>
-<tr *ngIf="dataTable.expandableRows" [hide]="!expanded" class="row-expansion">
+<tr *ngIf="dataTable.expandableRows && expanded" class="row-expansion">
     <td [attr.colspan]="dataTable.columnCount">
         <div [ngTemplateOutlet]="dataTable.expandTemplate" [ngOutletContext]="{row: _this, item: item}"></div>
     </td>
