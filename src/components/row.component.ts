@@ -51,9 +51,11 @@ export class DataTableRow implements OnDestroy {
         return '';
     }
 
-    expandRow() {
+    expandRow(event) {
+        console.log('expand row');
         this.expanded = !this.expanded;
-        this.expandRowChange.emit(this.expanded);
+        event.stopPropagation();
+        this.expandRowChange.emit();
     }
 
     constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {}
