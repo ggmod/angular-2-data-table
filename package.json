@@ -1,6 +1,6 @@
 {
-  "name": "angular-2-data-table",
-  "version": "0.1.2",
+  "name": "angular-datatable",
+  "version": "2.0.0",
   "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://git@github.com/ggmod/angular-2-data-table.git"
+    "url": "git://git@github.com/briebugconsulting/ng-data-table.git"
   },
   "peerDependencies": {
     "@angular/core": "^2.0.0"

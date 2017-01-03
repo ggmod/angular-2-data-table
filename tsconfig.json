@@ -1,19 +1,19 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
     "mapRoot": "/",
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noImplicitAny": false,
     "outDir": "dist/",
     "rootDir": "src/",
     "sourceMap": true,
     "target": "es5",
-    "inlineSources": true
+    "typeRoots": [
+      "../node_modules/@types"
+    ]	
   },
   "exclude": [
     "dist",
