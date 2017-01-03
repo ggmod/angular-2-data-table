@@ -1,6 +1,6 @@
 {
   "name": "angular-datatable",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
