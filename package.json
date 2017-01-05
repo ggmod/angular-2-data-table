@@ -1,7 +1,7 @@
 {
   "name": "angular-datatable",
   "version": "2.0.4",
-  "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
+  "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
     "angular2",
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://git@github.com/briebugconsulting/ng-data-table.git"
+    "url": "git://git@github.com/briebugconsulting/angular-datatable.git"
   },
   "peerDependencies": {
     "@angular/core": "^2.0.0"
   },
-  "author": "ggmod <ggmod64@gmail.com>",
+  "author": "BrieBug Developers <developers@briebug.com>",
   "license": "MIT",
   "devDependencies": {
     "@angular/common": "^2.0.0",
