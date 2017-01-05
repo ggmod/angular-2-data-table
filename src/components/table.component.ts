@@ -213,6 +213,7 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() rowDoubleClick = new EventEmitter();
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
+    @Output() rowExpandChange = new EventEmitter();
 
     private rowClicked(row: DataTableRow, event) {
         this.rowClick.emit({ row, event });
@@ -320,6 +321,10 @@ export class DataTable implements DataTableParams, OnInit {
                 }
             });
         }
+    }
+
+    onRowExpandChanged(row) {
+        this.rowExpandChange.emit(row);
     }
 
     // other:
