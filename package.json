@@ -32,7 +32,17 @@
     "@angular/common": "^2.0.0",
     "@angular/core": "^2.0.0",
     "@angular/forms": "^2.0.0",
+    "cz-conventional-changelog": "1.2.0",
     "rxjs": "^5.0.0-beta.12",
-    "typescript": "^2.0.0"
+    "typescript": "^2.0.0",
+    "validate-commit-msg": "2.8.2"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

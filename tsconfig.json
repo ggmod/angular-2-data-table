@@ -4,7 +4,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": ["es6", "dom"],
-    "mapRoot": "/",
     "module": "es6",
     "moduleResolution": "node",
     "outDir": "dist/",
@@ -13,11 +12,10 @@
     "target": "es5",
     "typeRoots": [
       "../node_modules/@types"
-    ]	
+    ]
   },
   "exclude": [
     "dist",
-    "node_modules",
-    "index.ts"
+    "node_modules"
   ]
 }
