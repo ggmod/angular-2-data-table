@@ -1,7 +1,7 @@
 {
   "name": "angular-datatable",
   "version": "2.0.4",
-  "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
+  "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
     "angular2",
@@ -21,18 +21,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://git@github.com/briebugconsulting/ng-data-table.git"
+    "url": "git://git@github.com/briebugconsulting/angular-datatable.git"
   },
   "peerDependencies": {
     "@angular/core": "^2.0.0"
   },
-  "author": "ggmod <ggmod64@gmail.com>",
+  "author": "BrieBug Developers <developers@briebug.com>",
   "license": "MIT",
   "devDependencies": {
     "@angular/common": "^2.0.0",
     "@angular/core": "^2.0.0",
     "@angular/forms": "^2.0.0",
+    "cz-conventional-changelog": "1.2.0",
     "rxjs": "^5.0.0-beta.12",
-    "typescript": "^2.0.0"
+    "typescript": "^2.0.0",
+    "validate-commit-msg": "2.8.2"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
