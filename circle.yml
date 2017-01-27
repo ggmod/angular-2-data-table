@@ -19,4 +19,5 @@ deployment:
   production:
     branch: master
     commands:
-      - npm publish
+      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - npm run publish2npm

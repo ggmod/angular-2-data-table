@@ -17,7 +17,8 @@
   "scripts": {
     "build": "rm -rf dist/* && tsc",
     "serve": "rm -rf dist/ && tsc -w",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "publish2npm": "publish"
   },
   "repository": {
     "type": "git",
