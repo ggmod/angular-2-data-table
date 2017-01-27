@@ -10,7 +10,7 @@ export const ROW_TEMPLATE = `
     (click)="dataTable.rowClicked(_this, $event)"
     >
     <td [hide]="!dataTable.expandColumnVisible" (click)="expandRow($event)" class="row-expand-button">
-        <i [ngClass]="{'fa-caret-right': !expanded, 'fa-caret-bottom': expanded}" 
+        <i [ngClass]="{'fa-caret-right': !expanded, 'fa-caret-down': expanded}" 
         class="fa fa-lg"></i>
     </td>
     <td [hide]="!dataTable.indexColumnVisible" class="index-column" [textContent]="displayIndex"></td>
