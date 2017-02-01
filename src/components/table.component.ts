@@ -56,6 +56,7 @@ export class DataTable implements DataTableParams, OnInit {
     @Input() selectOnRowClick = false;
     @Input() autoReload = true;
     @Input() showReloading = false;
+    @Input() showDownloadButton = false;
 
     // UI state without input:
 
@@ -207,12 +208,20 @@ export class DataTable implements DataTableParams, OnInit {
         });
     }
 
+    // Download
+    @Output() download = new EventEmitter();
+
+    downloadItems(){
+        this.download.emit(this._getRemoteParameters());
+    }
+
     // event handlers:
 
     @Output() rowClick = new EventEmitter();
     @Output() rowDoubleClick = new EventEmitter();
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
+    @Output() rowExpandChange = new EventEmitter();
 
     private rowClicked(row: DataTableRow, event) {
         this.rowClick.emit({ row, event });
@@ -320,6 +329,10 @@ export class DataTable implements DataTableParams, OnInit {
                 }
             });
         }
+    }
+
+    onRowExpandChanged(row) {
+        this.rowExpandChange.emit(row);
     }
 
     // other:

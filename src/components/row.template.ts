@@ -9,9 +9,9 @@ export const ROW_TEMPLATE = `
     (dblclick)="dataTable.rowDoubleClicked(_this, $event)"
     (click)="dataTable.rowClicked(_this, $event)"
     >
-    <td [hide]="!dataTable.expandColumnVisible" (click)="expanded = !expanded; $event.stopPropagation()" class="row-expand-button">
-        <span class="glyphicon glyphicon-triangle-right" [hide]="expanded"></span>
-        <span class="glyphicon glyphicon-triangle-bottom" [hide]="!expanded"></span>
+    <td [hide]="!dataTable.expandColumnVisible" (click)="expandRow($event)" class="row-expand-button">
+        <i [ngClass]="{'fa-caret-right': !expanded, 'fa-caret-down': expanded}" 
+        class="fa fa-lg"></i>
     </td>
     <td [hide]="!dataTable.indexColumnVisible" class="index-column" [textContent]="displayIndex"></td>
     <td [hide]="!dataTable.selectColumnVisible" class="select-column">
@@ -23,7 +23,7 @@ export const ROW_TEMPLATE = `
         <div *ngIf="column.cellTemplate" [ngTemplateOutlet]="column.cellTemplate" [ngOutletContext]="{column: column, row: _this, item: item}"></div>
     </td>
 </tr>
-<tr *ngIf="dataTable.expandableRows" [hide]="!expanded" class="row-expansion">
+<tr *ngIf="dataTable.expandableRows && expanded" class="row-expansion">
     <td [attr.colspan]="dataTable.columnCount">
         <div [ngTemplateOutlet]="dataTable.expandTemplate" [ngOutletContext]="{row: _this, item: item}"></div>
     </td>
