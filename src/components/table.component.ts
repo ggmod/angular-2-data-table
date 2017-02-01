@@ -56,6 +56,7 @@ export class DataTable implements DataTableParams, OnInit {
     @Input() selectOnRowClick = false;
     @Input() autoReload = true;
     @Input() showReloading = false;
+    @Input() showDownloadButton = false;
 
     // UI state without input:
 
@@ -205,6 +206,13 @@ export class DataTable implements DataTableParams, OnInit {
         this._scheduledReload = setTimeout(() => {
             this.reloadItems();
         });
+    }
+
+    // Download
+    @Output() download = new EventEmitter();
+
+    downloadItems(){
+        this.download.emit(this._getRemoteParameters());
     }
 
     // event handlers:
