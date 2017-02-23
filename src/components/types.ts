@@ -8,6 +8,7 @@ export type CellCallback = (item: any, row: DataTableRow, column: DataTableColum
 
 // export type HeaderCallback = (column: DataTableColumn) => string;
 
+export type DataTableSortCallback = (a: any, b: any) => number;
 
 export interface DataTableTranslations {
     indexColumn: string;
@@ -30,5 +31,6 @@ export interface DataTableParams {
     offset?: number;
     limit?: number;
     sortBy?: string;
+    customSort?: DataTableSortCallback;
     sortAsc?: boolean;
 }
