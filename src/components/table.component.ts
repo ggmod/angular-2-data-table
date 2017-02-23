@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
-import { DataTableParams } from './types';
+import {DataTableParams, DataTableSortCallback} from './types';
 import { RowCallback } from './types';
 import { DataTableTranslations, defaultTranslations } from './types';
 import { drag } from '../utils/drag';
@@ -14,9 +14,9 @@ import { TABLE_STYLE } from "./table.style";
 
 
 @Component({
-  selector: 'data-table',
-  template: TABLE_TEMPLATE,
-  styles: [TABLE_STYLE]
+    selector: 'data-table',
+    template: TABLE_TEMPLATE,
+    styles: [TABLE_STYLE]
 })
 export class DataTable implements DataTableParams, OnInit {
 
@@ -67,6 +67,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     private _sortBy: string;
     private _sortAsc = true;
+    private _customSort: DataTableSortCallback = null;
 
     private _offset = 0;
     private _limit = 10;
@@ -88,6 +89,16 @@ export class DataTable implements DataTableParams, OnInit {
 
     set sortAsc(value) {
         this._sortAsc = value;
+        this._triggerReload();
+    }
+
+    @Input()
+    get customSort() {
+        return this._customSort;
+    }
+
+    set customSort(value) {
+        this._customSort = value;
         this._triggerReload();
     }
 
@@ -128,9 +139,10 @@ export class DataTable implements DataTableParams, OnInit {
 
     // setting multiple observable properties simultaneously
 
-    sort(sortBy: string, asc: boolean) {
+    sort(sortBy: string, asc: boolean, customSort: DataTableSortCallback = null) {
         this.sortBy = sortBy;
         this.sortAsc = asc;
+        this.customSort = customSort;
     }
 
     // init
@@ -189,6 +201,7 @@ export class DataTable implements DataTableParams, OnInit {
     _updateDisplayParams() {
         this._displayParams = {
             sortBy: this.sortBy,
+            customSort: this.customSort,
             sortAsc: this.sortAsc,
             offset: this.offset,
             limit: this.limit
@@ -242,6 +255,7 @@ export class DataTable implements DataTableParams, OnInit {
 
         if (this.sortBy) {
             params.sortBy = this.sortBy;
+            params.customSort = this.customSort;
             params.sortAsc = this.sortAsc;
         }
         if (this.pagination) {
@@ -254,7 +268,7 @@ export class DataTable implements DataTableParams, OnInit {
     private sortColumn(column: DataTableColumn) {
         if (column.sortable) {
             let ascending = this.sortBy === column.property ? !this.sortAsc : true;
-            this.sort(column.property, ascending);
+            this.sort(column.property, ascending, column.customSort);
         }
     }
 
