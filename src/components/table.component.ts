@@ -67,7 +67,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     private _sortBy: string;
     private _sortAsc = true;
-    private _customSort: DataTableSortCallback = null;
+    private _customSort: DataTableSortCallback;
 
     private _offset = 0;
     private _limit = 10;
@@ -139,7 +139,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     // setting multiple observable properties simultaneously
 
-    sort(sortBy: string, asc: boolean, customSort: DataTableSortCallback = null) {
+    sort(sortBy: string, asc: boolean, customSort: DataTableSortCallback) {
         this.sortBy = sortBy;
         this.sortAsc = asc;
         this.customSort = customSort;
@@ -164,9 +164,9 @@ export class DataTable implements DataTableParams, OnInit {
     }
 
     private _initDefaultClickEvents() {
-        this.headerClick.subscribe(tableEvent => this.sortColumn(tableEvent.column));
+        this.headerClick.subscribe((tableEvent: any) => this.sortColumn(tableEvent.column));
         if (this.selectOnRowClick) {
-            this.rowClick.subscribe(tableEvent => tableEvent.row.selected = !tableEvent.row.selected);
+            this.rowClick.subscribe((tableEvent: any) => tableEvent.row.selected = !tableEvent.row.selected);
         }
     }
 
@@ -208,7 +208,7 @@ export class DataTable implements DataTableParams, OnInit {
         };
     }
 
-    _scheduledReload = null;
+    _scheduledReload: any = null;
 
     // for avoiding cascading reloads if multiple params are set at once:
     _triggerReload() {
@@ -228,11 +228,11 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() cellClick = new EventEmitter();
     @Output() rowExpandChange = new EventEmitter();
 
-    private rowClicked(row: DataTableRow, event) {
+    private rowClicked(row: DataTableRow, event: Event) {
         this.rowClick.emit({ row, event });
     }
 
-    private rowDoubleClicked(row: DataTableRow, event) {
+    private rowDoubleClicked(row: DataTableRow, event: Event) {
         this.rowDoubleClick.emit({ row, event });
     }
 
@@ -310,7 +310,6 @@ export class DataTable implements DataTableParams, OnInit {
     }
 
     onRowSelectChanged(row: DataTableRow) {
-
         // maintain the selectedRow(s) view
         if (this.multiSelect) {
             let index = this.selectedRows.indexOf(row);
@@ -323,7 +322,7 @@ export class DataTable implements DataTableParams, OnInit {
             if (row.selected) {
                 this.selectedRow = row;
             } else if (this.selectedRow === row) {
-                this.selectedRow = undefined;
+                this.selectedRow = row;
             }
         }
 
@@ -337,7 +336,7 @@ export class DataTable implements DataTableParams, OnInit {
         }
     }
 
-    onRowExpandChanged(row) {
+    onRowExpandChanged(row: DataTableRow) {
         this.rowExpandChange.emit(row);
     }
 

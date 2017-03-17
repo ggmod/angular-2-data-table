@@ -51,7 +51,7 @@ export class DataTableRow implements OnDestroy {
         return '';
     }
 
-    expandRow(event) {
+    expandRow(event: Event) {
         event.stopPropagation();
         this.expanded = !this.expanded;
         this.expandRowChange.emit();

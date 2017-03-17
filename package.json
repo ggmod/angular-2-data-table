@@ -12,12 +12,11 @@
     "data table",
     "pagination"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist/* && tsc",
-    "serve": "rm -rf dist/ && tsc -w",
-    "prepublish": "npm run build"
+    "transpile": "ngc",
+    "package": "rollup -c",
+    "minify": "uglifyjs dist/bundles/datatable.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/datatable.umd.min.js",
+    "build": "npm run transpile && npm run package && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -29,13 +28,20 @@
   "author": "BrieBug Developers <developers@briebug.com>",
   "license": "MIT",
   "devDependencies": {
-    "@angular/common": "^2.3.1",
-    "@angular/core": "^2.3.1",
-    "@angular/forms": "^2.3.1",
+    "@angular/common": "^2.4.0",
+    "@angular/compiler": "^2.4.9",
+    "@angular/compiler-cli": "^2.4.9",
+    "@angular/core": "^2.4.0",
+    "@angular/forms": "^2.4.0",
+    "@angular/platform-browser": "^2.4.0",
+    "@angular/platform-server": "^2.4.0",
     "cz-conventional-changelog": "1.2.0",
-    "rxjs": "^5.0.1",
-    "typescript": "~2.0.3",
-    "validate-commit-msg": "2.8.2"
+    "rollup": "^0.41.6",
+    "rxjs": "^5.1.0",
+    "typescript": "^2.0.10",
+    "uglify-js": "^2.8.12",
+    "validate-commit-msg": "2.8.2",
+    "zone.js": "^0.7.2"
   },
   "config": {
     "ghooks": {

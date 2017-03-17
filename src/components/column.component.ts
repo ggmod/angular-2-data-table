@@ -15,14 +15,14 @@ export class DataTableColumn implements OnInit {
     @Input() property: string;
     @Input() styleClass: string;
     @Input() cellColors: CellCallback;
-    @Input() customSort?: DataTableSortCallback;
+    @Input() customSort: DataTableSortCallback;
 
     // init and state:
     @Input() width: number | string;
     @Input() visible = true;
 
-    @ContentChild('dataTableCell') cellTemplate;
-    @ContentChild('dataTableHeader') headerTemplate;
+    @ContentChild('dataTableCell') cellTemplate: any;
+    @ContentChild('dataTableHeader') headerTemplate: any;
 
     getCellColor(row: DataTableRow, index: number) {
         if (this.cellColors !== undefined) {
