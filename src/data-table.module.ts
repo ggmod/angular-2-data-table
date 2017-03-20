@@ -29,7 +29,13 @@ import {MinPipe} from './utils/min';
     ],
     exports: [
         DataTable,
-        DataTableColumn
+        DataTableColumn,
+        DataTableRow,
+        DataTablePagination,
+        DataTableHeader,
+        PixelConverter,
+        Hide,
+        MinPipe
     ]
 })
 export class DataTableModule {
