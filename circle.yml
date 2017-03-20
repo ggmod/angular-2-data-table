@@ -1,0 +1,24 @@
+## Customize the test machine
+machine:
+  timezone:
+    America/Denver # Set the timezone
+  node:
+    version: 6.2.2
+
+## Customize dependencies
+dependencies:
+  pre:
+    - npm install -g typescript typings
+
+## customize test commands
+test:
+  override:
+    - npm run build
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - cd dist
+      - npm run publish2npm

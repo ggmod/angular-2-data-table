@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
-import { DataTableParams } from './types';
+import {DataTableParams, DataTableSortCallback} from './types';
 import { RowCallback } from './types';
 import { DataTableTranslations, defaultTranslations } from './types';
 import { drag } from '../utils/drag';
@@ -14,9 +14,9 @@ import { TABLE_STYLE } from "./table.style";
 
 
 @Component({
-  selector: 'data-table',
-  template: TABLE_TEMPLATE,
-  styles: [TABLE_STYLE]
+    selector: 'data-table',
+    template: TABLE_TEMPLATE,
+    styles: [TABLE_STYLE]
 })
 export class DataTable implements DataTableParams, OnInit {
 
@@ -56,6 +56,7 @@ export class DataTable implements DataTableParams, OnInit {
     @Input() selectOnRowClick = false;
     @Input() autoReload = true;
     @Input() showReloading = false;
+    @Input() showDownloadButton = false;
 
     // UI state without input:
 
@@ -67,6 +68,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     private _sortBy: string;
     private _sortAsc = true;
+    private _customSort: DataTableSortCallback;
 
     private _offset = 0;
     private _limit = 10;
@@ -88,6 +90,16 @@ export class DataTable implements DataTableParams, OnInit {
 
     set sortAsc(value) {
         this._sortAsc = value;
+        this._triggerReload();
+    }
+
+    @Input()
+    get customSort() {
+        return this._customSort;
+    }
+
+    set customSort(value) {
+        this._customSort = value;
         this._triggerReload();
     }
 
@@ -128,9 +140,10 @@ export class DataTable implements DataTableParams, OnInit {
 
     // setting multiple observable properties simultaneously
 
-    sort(sortBy: string, asc: boolean) {
+    sort(sortBy: string, asc: boolean, customSort: DataTableSortCallback) {
         this.sortBy = sortBy;
         this.sortAsc = asc;
+        this.customSort = customSort;
     }
 
     // init
@@ -152,9 +165,9 @@ export class DataTable implements DataTableParams, OnInit {
     }
 
     private _initDefaultClickEvents() {
-        this.headerClick.subscribe(tableEvent => this.sortColumn(tableEvent.column));
+        this.headerClick.subscribe((tableEvent: any) => this.sortColumn(tableEvent.column));
         if (this.selectOnRowClick) {
-            this.rowClick.subscribe(tableEvent => tableEvent.row.selected = !tableEvent.row.selected);
+            this.rowClick.subscribe((tableEvent: any) => tableEvent.row.selected = !tableEvent.row.selected);
         }
     }
 
@@ -189,13 +202,14 @@ export class DataTable implements DataTableParams, OnInit {
     _updateDisplayParams() {
         this._displayParams = {
             sortBy: this.sortBy,
+            customSort: this.customSort,
             sortAsc: this.sortAsc,
             offset: this.offset,
             limit: this.limit
         };
     }
 
-    _scheduledReload = null;
+    _scheduledReload: any = null;
 
     // for avoiding cascading reloads if multiple params are set at once:
     _triggerReload() {
@@ -207,18 +221,26 @@ export class DataTable implements DataTableParams, OnInit {
         });
     }
 
+    // Download
+    @Output() download = new EventEmitter();
+
+    downloadItems(){
+        this.download.emit(this._getRemoteParameters());
+    }
+
     // event handlers:
 
     @Output() rowClick = new EventEmitter();
     @Output() rowDoubleClick = new EventEmitter();
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
+    @Output() rowExpandChange = new EventEmitter();
 
-    private rowClicked(row: DataTableRow, event) {
+    private rowClicked(row: DataTableRow, event: Event) {
         this.rowClick.emit({ row, event });
     }
 
-    private rowDoubleClicked(row: DataTableRow, event) {
+    private rowDoubleClicked(row: DataTableRow, event: Event) {
         this.rowDoubleClick.emit({ row, event });
     }
 
@@ -241,6 +263,7 @@ export class DataTable implements DataTableParams, OnInit {
 
         if (this.sortBy) {
             params.sortBy = this.sortBy;
+            params.customSort = this.customSort;
             params.sortAsc = this.sortAsc;
         }
         if (this.pagination) {
@@ -253,7 +276,7 @@ export class DataTable implements DataTableParams, OnInit {
     private sortColumn(column: DataTableColumn) {
         if (column.sortable) {
             let ascending = this.sortBy === column.property ? !this.sortAsc : true;
-            this.sort(column.property, ascending);
+            this.sort(column.property, ascending, column.customSort);
         }
     }
 
@@ -295,7 +318,6 @@ export class DataTable implements DataTableParams, OnInit {
     }
 
     onRowSelectChanged(row: DataTableRow) {
-
         // maintain the selectedRow(s) view
         if (this.multiSelect) {
             let index = this.selectedRows.indexOf(row);
@@ -308,7 +330,7 @@ export class DataTable implements DataTableParams, OnInit {
             if (row.selected) {
                 this.selectedRow = row;
             } else if (this.selectedRow === row) {
-                this.selectedRow = undefined;
+                this.selectedRow = row;
             }
         }
 
@@ -320,6 +342,10 @@ export class DataTable implements DataTableParams, OnInit {
                 }
             });
         }
+    }
+
+    onRowExpandChanged(row: DataTableRow) {
+        this.rowExpandChange.emit(row);
     }
 
     // other:

@@ -8,7 +8,7 @@ function isBlank(obj: any): boolean {
 @Directive({ selector: '[hide]', inputs: ['hide'] })
 export class Hide {
 
-  private _prevCondition: boolean = null;
+  private _prevCondition: boolean = false;
   private _displayStyle: string;
 
   constructor(private _elementRef: ElementRef, private _renderer: Renderer) { }
