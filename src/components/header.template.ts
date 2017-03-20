@@ -10,6 +10,10 @@ export const HEADER_TEMPLATE = `
             (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" >
             <i class="fa fa-list fa-lg"></i>
         </button>
+        <button *ngIf="dataTable.showDownloadButton" type="button" class="btn btn-default btn-sm download-button"
+            (click)="dataTable.downloadItems()">
+            <i class="fa fa-download fa-lg"></i>
+        </button>
         <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
             <div *ngIf="columnSelectorOpen" class="column-selector-box panel panel-default">
                 <div *ngIf="dataTable.expandableRows" class="column-selector-fixed-column checkbox">
