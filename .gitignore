@@ -1,4 +1,5 @@
-/dist
+!*/dist/package.json
+/dist/**/
 /tmp
 /node_modules
 /.idea
