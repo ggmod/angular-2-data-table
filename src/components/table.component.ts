@@ -2,16 +2,15 @@ import {
     Component, Input, Output, EventEmitter, ContentChildren, QueryList,
     TemplateRef, ContentChild, ViewChildren, OnInit
 } from '@angular/core';
-import { DataTableColumn } from './column.component';
-import { DataTableRow } from './row.component';
+
+import {DataTableColumn} from './column.component';
+import {DataTableRow} from './row.component';
 import {DataTableParams, DataTableSortCallback} from './types';
-import { RowCallback } from './types';
-import { DataTableTranslations, defaultTranslations } from './types';
-import { drag } from '../utils/drag';
-import { TABLE_TEMPLATE } from './table.template';
-import { TABLE_STYLE } from "./table.style";
-
-
+import {RowCallback} from './types';
+import {DataTableTranslations, defaultTranslations} from './types';
+import {drag} from '../utils/drag';
+import {TABLE_TEMPLATE} from './table.template';
+import {TABLE_STYLE} from "./table.style";
 
 @Component({
     selector: 'data-table',
@@ -68,7 +67,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     private _sortBy: string;
     private _sortAsc = true;
-    private _customSort: DataTableSortCallback = null;
+    private _customSort: DataTableSortCallback;
 
     private _offset = 0;
     private _limit = 10;
@@ -140,7 +139,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     // setting multiple observable properties simultaneously
 
-    sort(sortBy: string, asc: boolean, customSort: DataTableSortCallback = null) {
+    sort(sortBy: string, asc: boolean, customSort: DataTableSortCallback) {
         this.sortBy = sortBy;
         this.sortAsc = asc;
         this.customSort = customSort;
@@ -165,9 +164,9 @@ export class DataTable implements DataTableParams, OnInit {
     }
 
     private _initDefaultClickEvents() {
-        this.headerClick.subscribe(tableEvent => this.sortColumn(tableEvent.column));
+        this.headerClick.subscribe((tableEvent: any) => this.sortColumn(tableEvent.column));
         if (this.selectOnRowClick) {
-            this.rowClick.subscribe(tableEvent => tableEvent.row.selected = !tableEvent.row.selected);
+            this.rowClick.subscribe((tableEvent: any) => tableEvent.row.selected = !tableEvent.row.selected);
         }
     }
 
@@ -209,7 +208,7 @@ export class DataTable implements DataTableParams, OnInit {
         };
     }
 
-    _scheduledReload = null;
+    _scheduledReload: any = null;
 
     // for avoiding cascading reloads if multiple params are set at once:
     _triggerReload() {
@@ -224,7 +223,7 @@ export class DataTable implements DataTableParams, OnInit {
     // Download
     @Output() download = new EventEmitter();
 
-    downloadItems(){
+    downloadItems() {
         this.download.emit(this._getRemoteParameters());
     }
 
@@ -236,24 +235,24 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() cellClick = new EventEmitter();
     @Output() rowExpandChange = new EventEmitter();
 
-    private rowClicked(row: DataTableRow, event) {
-        this.rowClick.emit({ row, event });
+    private rowClicked(row: DataTableRow, event: Event) {
+        this.rowClick.emit({row, event});
     }
 
-    private rowDoubleClicked(row: DataTableRow, event) {
-        this.rowDoubleClick.emit({ row, event });
+    private rowDoubleClicked(row: DataTableRow, event: Event) {
+        this.rowDoubleClick.emit({row, event});
     }
 
     private headerClicked(column: DataTableColumn, event: MouseEvent) {
         if (!this._resizeInProgress) {
-            this.headerClick.emit({ column, event });
+            this.headerClick.emit({column, event});
         } else {
             this._resizeInProgress = false; // this is because I can't prevent click from mousup of the drag end
         }
     }
 
     private cellClicked(column: DataTableColumn, row: DataTableRow, event: MouseEvent) {
-        this.cellClick.emit({ row, column, event });
+        this.cellClick.emit({row, column, event});
     }
 
     // functions:
@@ -318,7 +317,6 @@ export class DataTable implements DataTableParams, OnInit {
     }
 
     onRowSelectChanged(row: DataTableRow) {
-
         // maintain the selectedRow(s) view
         if (this.multiSelect) {
             let index = this.selectedRows.indexOf(row);
@@ -331,7 +329,7 @@ export class DataTable implements DataTableParams, OnInit {
             if (row.selected) {
                 this.selectedRow = row;
             } else if (this.selectedRow === row) {
-                this.selectedRow = undefined;
+                this.selectedRow = row;
             }
         }
 
@@ -345,14 +343,14 @@ export class DataTable implements DataTableParams, OnInit {
         }
     }
 
-    onRowExpandChanged(row) {
+    onRowExpandChanged(row: DataTableRow) {
         this.rowExpandChange.emit(row);
     }
 
     // other:
 
     get substituteItems() {
-        return Array.from({ length: this.displayParams.limit - this.items.length });
+        return Array.from({length: this.displayParams.limit - this.items.length});
     }
 
     // column resizing:
@@ -378,8 +376,7 @@ export class DataTable implements DataTableParams, OnInit {
          Without the limits, resizing can make the next column disappear completely,
          and even increase the table width. The current implementation suffers from the fact,
          that offsetWidth sometimes contains out-of-date values. */
-        if ((dx < 0 && (columnElement.offsetWidth + dx) <= this.resizeLimit) ||
-            !columnElement.nextElementSibling || // resizing doesn't make sense for the last visible column
+        if ((dx < 0 && (columnElement.offsetWidth + dx) <= this.resizeLimit) || !columnElement.nextElementSibling || // resizing doesn't make sense for the last visible column
             (dx >= 0 && ((<HTMLElement> columnElement.nextElementSibling).offsetWidth + dx) <= this.resizeLimit)) {
             return false;
         }

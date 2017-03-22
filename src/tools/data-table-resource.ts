@@ -16,11 +16,11 @@ export class DataTableResource<T> {
 
         if (params.sortBy) {
             if (!params.customSort) {
-                result.sort((a, b) => {
-                    if (typeof a[params.sortBy] === 'string') {
-                        return a[params.sortBy].localeCompare(b[params.sortBy]);
+                result.sort((a: any, b: any) => {
+                    if (typeof a[<string> params.sortBy] === 'string') {
+                        return a[<string> params.sortBy].localeCompare(b[<string> params.sortBy]);
                     } else {
-                        return a[params.sortBy] - b[params.sortBy];
+                        return a[<string> params.sortBy] - b[<string> params.sortBy];
                     }
                 });
             } else {
