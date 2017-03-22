@@ -1,6 +1,6 @@
 {
   "name": "angular-datatable",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
   "main": "bundles/datatable.umd.js",
   "module": "index.js",
