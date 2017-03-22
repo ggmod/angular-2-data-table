@@ -3,7 +3,7 @@ machine:
   timezone:
     America/Denver # Set the timezone
   node:
-    version: 6.2.2
+    version: 6.9.4
 
 ## Customize dependencies
 dependencies:
@@ -20,4 +20,5 @@ deployment:
     branch: master
     commands:
       - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - cd dist
       - npm run publish2npm
