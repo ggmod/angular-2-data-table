@@ -1,10 +1,1 @@
-
-/tmp
-/node_modules
-/.idea
-/typings
-npm-debug.log
-tsconfig.json
-typings.json
-/.vscode
-/.npmignore
+src

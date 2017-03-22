@@ -1,7 +1,9 @@
 {
   "name": "angular-datatable",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
+  "main": "dist/bundles/angular-datatable.umd.js",
+  "module": "dist/index.js",
   "keywords": [
     "angular",
     "angular2",
@@ -13,36 +15,39 @@
     "pagination"
   ],
   "scripts": {
-    "transpile": "ngc",
-    "package": "rollup -c",
-    "minify": "uglifyjs dist/bundles/datatable.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/datatable.umd.min.js",
-    "build": "npm run transpile && npm run package && npm run minify",
-    "publish2npm": "publish"
+    "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
+    "bundling": "rollup -c",
+    "minify": "uglifyjs dist/bundles/angular-datatable.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/angular-datatable.umd.min.js",
+    "copy": "copyfiles LICENSE README.md dist",
+    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy",
+    "build-only": "npm run cleanup && ngc",
+    "publish-to-npm": "cd dist && npm publish",
+    "link": "cd dist && npm link && cd .."
   },
   "repository": {
     "type": "git",
     "url": "git://git@github.com/briebugconsulting/angular-datatable.git"
   },
-  "peerDependencies": {
-    "@angular/core": "^2.3.1"
-  },
   "author": "BrieBug Developers <developers@briebug.com>",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@angular/common": "^2.4.0",
-    "@angular/compiler": "^2.4.9",
-    "@angular/compiler-cli": "^2.4.9",
     "@angular/core": "^2.4.0",
     "@angular/forms": "^2.4.0",
-    "@angular/platform-browser": "^2.4.0",
-    "@angular/platform-server": "^2.4.0",
-    "cz-conventional-changelog": "1.2.0",
-    "rollup": "^0.41.6",
-    "rxjs": "^5.1.0",
-    "typescript": "^2.0.10",
-    "uglify-js": "^2.8.12",
-    "validate-commit-msg": "2.8.2",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.3",
     "zone.js": "^0.7.2"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
+    "copyfiles": "^1.2.0",
+    "cz-conventional-changelog": "1.2.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.37.0",
+    "typescript": "~2.0.10",
+    "uglify-js": "^2.7.5",
+    "validate-commit-msg": "2.8.2"
   },
   "config": {
     "ghooks": {

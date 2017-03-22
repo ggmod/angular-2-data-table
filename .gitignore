@@ -1,13 +1,12 @@
-!*/dist/package.json
-/dist/**/
+!dist/package.json
+dist/*
 /tmp
 /node_modules
 /.idea
 /typings
 npm-debug.log
 /.vscode
-/src/**/*.js
-/src/**/*.js.map
-/src/**/*.json
+/src/**/*.js*
 /src/**/*.ngfactory.ts
+**/*.ngsummary.json
 /aot

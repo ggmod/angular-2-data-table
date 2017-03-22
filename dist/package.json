@@ -3,8 +3,8 @@
   "version": "2.2.0",
   "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
   "main": "bundles/datatable.umd.js",
-  "module": "src/index.js",
-  "typings": "src/index.d.ts",
+  "module": "index.js",
+  "typings": "index.d.ts",
   "keywords": [
     "angular",
     "angular2",

@@ -3,7 +3,7 @@ machine:
   timezone:
     America/Denver # Set the timezone
   node:
-    version: 6.2.2
+    version: 6.9.4
 
 ## Customize dependencies
 dependencies:

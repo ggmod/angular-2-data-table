@@ -2,16 +2,15 @@ import {
     Component, Input, Output, EventEmitter, ContentChildren, QueryList,
     TemplateRef, ContentChild, ViewChildren, OnInit
 } from '@angular/core';
-import { DataTableColumn } from './column.component';
-import { DataTableRow } from './row.component';
+
+import {DataTableColumn} from './column.component';
+import {DataTableRow} from './row.component';
 import {DataTableParams, DataTableSortCallback} from './types';
-import { RowCallback } from './types';
-import { DataTableTranslations, defaultTranslations } from './types';
-import { drag } from '../utils/drag';
-import { TABLE_TEMPLATE } from './table.template';
-import { TABLE_STYLE } from "./table.style";
-
-
+import {RowCallback} from './types';
+import {DataTableTranslations, defaultTranslations} from './types';
+import {drag} from '../utils/drag';
+import {TABLE_TEMPLATE} from './table.template';
+import {TABLE_STYLE} from "./table.style";
 
 @Component({
     selector: 'data-table',
@@ -224,7 +223,7 @@ export class DataTable implements DataTableParams, OnInit {
     // Download
     @Output() download = new EventEmitter();
 
-    downloadItems(){
+    downloadItems() {
         this.download.emit(this._getRemoteParameters());
     }
 
@@ -237,23 +236,23 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() rowExpandChange = new EventEmitter();
 
     private rowClicked(row: DataTableRow, event: Event) {
-        this.rowClick.emit({ row, event });
+        this.rowClick.emit({row, event});
     }
 
     private rowDoubleClicked(row: DataTableRow, event: Event) {
-        this.rowDoubleClick.emit({ row, event });
+        this.rowDoubleClick.emit({row, event});
     }
 
     private headerClicked(column: DataTableColumn, event: MouseEvent) {
         if (!this._resizeInProgress) {
-            this.headerClick.emit({ column, event });
+            this.headerClick.emit({column, event});
         } else {
             this._resizeInProgress = false; // this is because I can't prevent click from mousup of the drag end
         }
     }
 
     private cellClicked(column: DataTableColumn, row: DataTableRow, event: MouseEvent) {
-        this.cellClick.emit({ row, column, event });
+        this.cellClick.emit({row, column, event});
     }
 
     // functions:
@@ -351,7 +350,7 @@ export class DataTable implements DataTableParams, OnInit {
     // other:
 
     get substituteItems() {
-        return Array.from({ length: this.displayParams.limit - this.items.length });
+        return Array.from({length: this.displayParams.limit - this.items.length});
     }
 
     // column resizing:
@@ -377,8 +376,7 @@ export class DataTable implements DataTableParams, OnInit {
          Without the limits, resizing can make the next column disappear completely,
          and even increase the table width. The current implementation suffers from the fact,
          that offsetWidth sometimes contains out-of-date values. */
-        if ((dx < 0 && (columnElement.offsetWidth + dx) <= this.resizeLimit) ||
-            !columnElement.nextElementSibling || // resizing doesn't make sense for the last visible column
+        if ((dx < 0 && (columnElement.offsetWidth + dx) <= this.resizeLimit) || !columnElement.nextElementSibling || // resizing doesn't make sense for the last visible column
             (dx >= 0 && ((<HTMLElement> columnElement.nextElementSibling).offsetWidth + dx) <= this.resizeLimit)) {
             return false;
         }
