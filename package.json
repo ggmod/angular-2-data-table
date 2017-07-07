@@ -24,7 +24,7 @@
     "url": "git+https://github.com/MIt9/angular-4-data-table.git"
   },
   "peerDependencies": {
-    "@angular/core": "^4.0.1"
+    "@angular/core": "^4.0.1.1"
   },
   "author": "Dmitrii Bilukha <siniidrozd@gmail.com> (http://donsamogon.com)",
   "license": "MIT",
@@ -33,16 +33,16 @@
     "@angular/common": "^4.0.1",
     "@angular/compiler": "^4.0.1",
     "@angular/compiler-cli": "^4.0.1",
-    "@angular/forms": "^4.0.1",
     "@angular/core": "^4.0.1",
-    "@angular/platform-browser": "^4.0.1",
+    "@angular/forms": "^4.0.1",
+    "@angular/platform-browser": "^4.2.5",
     "@angular/platform-browser-dynamic": "^4.0.1",
     "@angular/platform-server": "^4.0.1",
-    "rxjs": "^5.1.0",
     "@types/node": "~6.0.60",
-    "zone.js": "^0.8.4",
+    "rxjs": "^5.1.0",
     "ts-node": "~2.0.0",
-    "typescript": "~2.1.5"
+    "typescript": "2.1.5",
+    "zone.js": "^0.8.12"
   },
   "false": {},
   "bugs": {
