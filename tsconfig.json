@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "declaration": true,
+    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "mapRoot": "/",
@@ -9,10 +9,18 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": false,
+    "preserveConstEnums": true,
     "outDir": "dist/",
     "rootDir": "src/",
     "sourceMap": true,
     "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
     "inlineSources": true
   },
   "exclude": [
