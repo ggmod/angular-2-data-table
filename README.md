@@ -1,6 +1,8 @@
-## Angular 2 Data Table
+## Angular 4 Data Table
 
-A simple Angular 2 data table, with built-in solutions for features including:
+It is fork of this package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
+
+A simple Angular 4 data table, with built-in solutions for features including:
 
 * pagination
 * sorting
@@ -16,7 +18,7 @@ The templates use bootstrap CSS class names, so the component requires a bootstr
 Check out the [demo](https://ggmod.github.io/angular-2-data-table-demo) and its [code](https://github.com/ggmod/angular-2-data-table-demo) for examples of how to use it. 
 
 ## Installing:
-`npm install angular-2-data-table --save`
+`npm install angular-4-data-table --save`
 
 
 #### Licensing
