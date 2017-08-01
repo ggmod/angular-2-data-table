@@ -24,7 +24,6 @@
     "inlineSources": true
   },
   "exclude": [
-    "dist",
     "node_modules",
     "index.ts"
   ],
