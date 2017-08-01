@@ -4,9 +4,10 @@ import {
 } from '@angular/core';
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
-import { DataTableParams } from './types';
-import { RowCallback } from './types';
-import { DataTableTranslations, defaultTranslations } from './types';
+import { DataTableParams } from '../types/data-table-params.type';
+import { RowCallback } from '../types/row-callback.type';
+import { DataTableTranslations } from '../types/data-table-translations.type';
+import { defaultTranslations } from '../types/default-translations.type';
 import { drag } from '../utils/drag';
 import { TABLE_TEMPLATE } from './table.template';
 import { TABLE_STYLE } from "./table.style";

@@ -27,5 +27,8 @@
     "dist",
     "node_modules",
     "index.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  }
 }

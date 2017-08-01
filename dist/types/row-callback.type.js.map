@@ -1,0 +1,1 @@
+{"version":3,"file":"row-callback.type.js","sourceRoot":"","sources":["file:///D:/projects/angular-4-data-table/src/types/row-callback.type.ts"],"names":[],"mappings":"","sourcesContent":["import { DataTableRow } from '../components/row.component';\r\n\r\nexport type RowCallback = (item: any, row: DataTableRow, index: number) => string;\r\n"]}

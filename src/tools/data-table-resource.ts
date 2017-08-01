@@ -1,4 +1,4 @@
-import { DataTableParams } from '../components/types';
+import { DataTableParams } from '../types/data-table-params.type';
 
 
 export class DataTableResource<T> {
