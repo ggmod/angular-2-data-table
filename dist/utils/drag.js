@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function drag(event, _a) {
     var move = _a.move, up = _a.up;
     var startX = event.pageX;

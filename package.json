@@ -1,6 +1,6 @@
 {
   "name": "angular-4-data-table",
-  "version": "0.1.4",
+  "version": "0.2.001",
   "description": "An Angular 4 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -22,21 +22,11 @@
     "type": "git",
     "url": "git+https://github.com/MIt9/angular-4-data-table.git"
   },
-  "peerDependencies": {
-    "@angular/core": "^4.0.1.1"
-  },
   "author": "Dmitrii Bilukha <siniidrozd@gmail.com> (http://donsamogon.com)",
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "@angular/common": "^4.0.1",
-    "@angular/compiler": "^4.0.1",
-    "@angular/compiler-cli": "^4.0.1",
-    "@angular/core": "^4.0.1",
-    "@angular/forms": "^4.0.1",
-    "@angular/platform-browser": "^4.2.5",
-    "@angular/platform-browser-dynamic": "^4.0.1",
-    "@angular/platform-server": "^4.0.1",
+    "@angular/core": "^4.0.0",
     "@types/node": "~6.0.60",
     "rxjs": "^5.1.0",
     "ts-node": "~2.0.0",

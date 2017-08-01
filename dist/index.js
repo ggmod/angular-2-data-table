@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
@@ -31,18 +32,18 @@ exports.DATA_TABLE_DIRECTIVES = [table_component_1.DataTable, column_component_1
 var DataTableModule = (function () {
     function DataTableModule() {
     }
+    DataTableModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, forms_1.FormsModule],
+            declarations: [
+                table_component_1.DataTable, column_component_1.DataTableColumn,
+                row_component_1.DataTableRow, pagination_component_1.DataTablePagination, header_component_1.DataTableHeader,
+                px_1.PixelConverter, hide_1.Hide, min_1.MinPipe
+            ],
+            exports: [table_component_1.DataTable, column_component_1.DataTableColumn]
+        })
+    ], DataTableModule);
     return DataTableModule;
 }());
-DataTableModule = __decorate([
-    core_1.NgModule({
-        imports: [common_1.CommonModule, forms_1.FormsModule],
-        declarations: [
-            table_component_1.DataTable, column_component_1.DataTableColumn,
-            row_component_1.DataTableRow, pagination_component_1.DataTablePagination, header_component_1.DataTableHeader,
-            px_1.PixelConverter, hide_1.Hide, min_1.MinPipe
-        ],
-        exports: [table_component_1.DataTable, column_component_1.DataTableColumn]
-    })
-], DataTableModule);
 exports.DataTableModule = DataTableModule;
 //# sourceMappingURL=/index.js.map

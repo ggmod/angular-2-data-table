@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var table_component_1 = require("./table.component");
 var pagination_template_1 = require("./pagination.template");
@@ -58,16 +59,16 @@ var DataTablePagination = (function () {
         enumerable: true,
         configurable: true
     });
+    DataTablePagination = __decorate([
+        core_1.Component({
+            selector: 'data-table-pagination',
+            template: pagination_template_1.PAGINATION_TEMPLATE,
+            styles: [pagination_style_1.PAGINATION_STYLE]
+        }),
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return table_component_1.DataTable; }))),
+        __metadata("design:paramtypes", [table_component_1.DataTable])
+    ], DataTablePagination);
     return DataTablePagination;
 }());
-DataTablePagination = __decorate([
-    core_1.Component({
-        selector: 'data-table-pagination',
-        template: pagination_template_1.PAGINATION_TEMPLATE,
-        styles: [pagination_style_1.PAGINATION_STYLE]
-    }),
-    __param(0, core_1.Inject(core_1.forwardRef(function () { return table_component_1.DataTable; }))),
-    __metadata("design:paramtypes", [table_component_1.DataTable])
-], DataTablePagination);
 exports.DataTablePagination = DataTablePagination;
 //# sourceMappingURL=/components/pagination.component.js.map
