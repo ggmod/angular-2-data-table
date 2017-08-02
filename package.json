@@ -1,6 +1,6 @@
 {
   "name": "angular-4-data-table",
-  "version": "0.2.002",
+  "version": "0.2.003",
   "description": "An Angular 4 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
