@@ -12,6 +12,7 @@
     "preserveConstEnums": true,
     "outDir": "dist/",
     "rootDir": "src/",
+    "types" : ["node"],
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [

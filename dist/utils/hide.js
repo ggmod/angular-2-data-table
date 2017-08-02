@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 function isBlank(obj) {
     return obj === undefined || obj === null;
@@ -42,11 +41,11 @@ var Hide = (function () {
             }
         }
     };
-    Hide = __decorate([
-        core_1.Directive({ selector: '[hide]', inputs: ['hide'] }),
-        __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
-    ], Hide);
     return Hide;
 }());
+Hide = __decorate([
+    core_1.Directive({ selector: '[hide]', inputs: ['hide'] }),
+    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
+], Hide);
 exports.Hide = Hide;
 //# sourceMappingURL=/utils/hide.js.map

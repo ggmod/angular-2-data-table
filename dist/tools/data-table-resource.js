@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var DataTableResource = (function () {
     function DataTableResource(items) {
         this.items = items;

@@ -15,6 +15,7 @@ import { TABLE_STYLE } from "./table.style";
 
 
 @Component({
+    moduleId: module.id,
   selector: 'data-table',
   template: TABLE_TEMPLATE,
   styles: [TABLE_STYLE]

@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var table_component_1 = require("./table.component");
 var header_template_1 = require("./header.template");
@@ -24,19 +23,20 @@ var DataTableHeader = (function () {
     DataTableHeader.prototype._closeSelector = function () {
         this.columnSelectorOpen = false;
     };
-    DataTableHeader = __decorate([
-        core_1.Component({
-            selector: 'data-table-header',
-            template: header_template_1.HEADER_TEMPLATE,
-            styles: [header_style_1.HEADER_STYLE],
-            host: {
-                '(document:click)': '_closeSelector()'
-            }
-        }),
-        __param(0, core_1.Inject(core_1.forwardRef(function () { return table_component_1.DataTable; }))),
-        __metadata("design:paramtypes", [table_component_1.DataTable])
-    ], DataTableHeader);
     return DataTableHeader;
 }());
+DataTableHeader = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'data-table-header',
+        template: header_template_1.HEADER_TEMPLATE,
+        styles: [header_style_1.HEADER_STYLE],
+        host: {
+            '(document:click)': '_closeSelector()'
+        }
+    }),
+    __param(0, core_1.Inject(core_1.forwardRef(function () { return table_component_1.DataTable; }))),
+    __metadata("design:paramtypes", [table_component_1.DataTable])
+], DataTableHeader);
 exports.DataTableHeader = DataTableHeader;
 //# sourceMappingURL=/components/header.component.js.map

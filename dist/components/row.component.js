@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var table_component_1 = require("./table.component");
 var row_template_1 = require("./row.template");
@@ -55,28 +54,29 @@ var DataTableRow = (function () {
     DataTableRow.prototype.ngOnDestroy = function () {
         this.selected = false;
     };
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], DataTableRow.prototype, "item", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Number)
-    ], DataTableRow.prototype, "index", void 0);
-    __decorate([
-        core_1.Output(),
-        __metadata("design:type", Object)
-    ], DataTableRow.prototype, "selectedChange", void 0);
-    DataTableRow = __decorate([
-        core_1.Component({
-            selector: '[dataTableRow]',
-            template: row_template_1.ROW_TEMPLATE,
-            styles: [row_style_1.ROW_STYLE]
-        }),
-        __param(0, core_1.Inject(core_1.forwardRef(function () { return table_component_1.DataTable; }))),
-        __metadata("design:paramtypes", [table_component_1.DataTable])
-    ], DataTableRow);
     return DataTableRow;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTableRow.prototype, "item", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], DataTableRow.prototype, "index", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], DataTableRow.prototype, "selectedChange", void 0);
+DataTableRow = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: '[dataTableRow]',
+        template: row_template_1.ROW_TEMPLATE,
+        styles: [row_style_1.ROW_STYLE]
+    }),
+    __param(0, core_1.Inject(core_1.forwardRef(function () { return table_component_1.DataTable; }))),
+    __metadata("design:paramtypes", [table_component_1.DataTable])
+], DataTableRow);
 exports.DataTableRow = DataTableRow;
 //# sourceMappingURL=/components/row.component.js.map
