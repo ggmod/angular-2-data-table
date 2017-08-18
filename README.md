@@ -1,4 +1,6 @@
-## Angular 2 Data Table
+## Angular 2 Data Table Bootstrap 4
+
+This is a forked version of https://www.npmjs.com/package/angular-2-data-table that has been updated to Bootstrap 4.
 
 A simple Angular 2 data table, with built-in solutions for features including:
 

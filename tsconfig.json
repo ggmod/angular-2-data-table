@@ -12,8 +12,9 @@
     "outDir": "dist/",
     "rootDir": "src/",
     "sourceMap": true,
-    "target": "es5",
-    "inlineSources": true
+    "target": "es2015",
+    "inlineSources": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "dist",

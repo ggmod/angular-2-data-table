@@ -1,5 +1,5 @@
 {
-  "name": "angular-2-data-table",
+  "name": "angular-2-data-table-bootstrap4",
   "dependencies": {},
   "globalDevDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504"
