@@ -4,14 +4,14 @@ export const HEADER_TEMPLATE = `
     <div class="button-panel">
         <button type="button" class="btn btn-default btn-sm refresh-button"
             (click)="dataTable.reloadItems()">
-            <span class="glyphicon glyphicon-refresh"></span>
+             <i class="fa fa-refresh"></i>
         </button>
         <button type="button" class="btn btn-default btn-sm column-selector-button" [class.active]="columnSelectorOpen"
             (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" >
-            <span class="glyphicon glyphicon-list"></span>
+            <i class="fa fa-list"></i>
         </button>
         <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
-            <div *ngIf="columnSelectorOpen" class="column-selector-box panel panel-default">
+            <div *ngIf="columnSelectorOpen" class="column-selector-box card">
                 <div *ngIf="dataTable.expandableRows" class="column-selector-fixed-column checkbox">
                     <label>
                         <input type="checkbox" [(ngModel)]="dataTable.expandColumnVisible"/>
@@ -32,7 +32,7 @@ export const HEADER_TEMPLATE = `
                 </div>
                 <div *ngFor="let column of dataTable.columns" class="column-selector-column checkbox">
                     <label>
-                        <input type="checkbox" [(ngModel)]="column.visible"/>
+                        <input type="checkbox" (click)="dataTable.emitColumns()" [(ngModel)]="column.visible"/>
                         <span [textContent]="column.header"></span>
                     </label>
                 </div>

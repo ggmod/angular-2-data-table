@@ -139,7 +139,6 @@ export class DataTable implements DataTableParams, OnInit {
         this._initDefaultValues();
         this._initDefaultClickEvents();
         this._updateDisplayParams();
-
         if (this.autoReload && this._scheduledReload == null) {
             this.reloadItems();
         }
@@ -213,9 +212,14 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() rowDoubleClick = new EventEmitter();
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
+    @Output() columnSettingsChanged = new EventEmitter();
 
     private rowClicked(row: DataTableRow, event) {
         this.rowClick.emit({ row, event });
+    }
+
+    private emitColumns() {
+        this.columnSettingsChanged.emit(this.columns);
     }
 
     private rowDoubleClicked(row: DataTableRow, event) {

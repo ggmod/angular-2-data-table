@@ -13,11 +13,12 @@
     "rootDir": "src/",
     "sourceMap": true,
     "target": "es5",
-    "inlineSources": true
+    "inlineSources": true,
+    "skipLibCheck": true,
+    "lib": ["es2015", "dom"]
   },
   "exclude": [
     "dist",
-    "node_modules",
-    "index.ts"
+    "node_modules"
   ]
 }

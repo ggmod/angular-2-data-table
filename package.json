@@ -1,6 +1,6 @@
 {
-  "name": "angular-2-data-table",
-  "version": "0.1.2",
+  "name": "kla-angular-2-data-table",
+  "version": "0.1.22",
   "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -15,16 +15,16 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist/* && tsc",
-    "serve": "rm -rf dist/ && tsc -w",
+    "build": "rimraf dist/* && tsc",
+    "serve": "rimraf -rf dist/ && tsc -w",
     "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git://git@github.com/ggmod/angular-2-data-table.git"
+    "url": "git://git@github.com:JayHelton/kla-angular-2-data-table.git"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0"
+    "@angular/core": "^4.0.0"
   },
   "author": "ggmod <ggmod64@gmail.com>",
   "license": "MIT",
@@ -32,7 +32,8 @@
     "@angular/common": "^2.0.0",
     "@angular/core": "^2.0.0",
     "@angular/forms": "^2.0.0",
-    "rxjs": "^5.0.0-beta.12",
-    "typescript": "^2.0.2"
+    "rimraf": "2.6.1",
+    "rxjs": "5.4.3",
+    "typescript": "^2.4.0"
   }
 }
