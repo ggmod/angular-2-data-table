@@ -1,6 +1,6 @@
 {
   "name": "kla-angular-2-data-table",
-  "version": "0.1.10",
+  "version": "0.1.22",
   "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -22,9 +22,6 @@
   "repository": {
     "type": "git",
     "url": "git://git@github.com:JayHelton/kla-angular-2-data-table.git"
-  },
-   "publishConfig": {
-    "registry": "http://jenkins.kunzleigh.com:808/repository/KlaNpmPrivate/"
   },
   "peerDependencies": {
     "@angular/core": "^4.0.0"
