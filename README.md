@@ -34,7 +34,7 @@ add in .angular-cli.json
 
 and for prodaction build use
 
-`ng build --prod`
+`ng build --prod --aot=false`
  
 #### Licensing
 MIT License
