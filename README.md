@@ -1,6 +1,6 @@
 ## Angular 4 Data Table
 
-It is fork of this package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
+This is fork of package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
 
 A simple Angular 4 data table, with built-in solutions for features including:
 
@@ -20,9 +20,9 @@ Check out the [demo](https://ggmod.github.io/angular-2-data-table-demo) and its 
 ## Installing:
 `npm install angular-4-data-table --save`
 
-## Prodaction (Minification)
-Some times can be some problam with it. to fix it
-use import like this
+## Production (Minification)
+Some times this can cause problems.  
+To fix it use import like this
 
 `import { DataTableModule } from 'angular-4-data-table/src/index';`
 
@@ -32,7 +32,7 @@ add in .angular-cli.json
         "../node_modules/angular-4-data-table/dist/index.js"
 ],`
 
-and for prodaction build use
+and for production build use
 
 `ng build --prod --aot=false`
  
