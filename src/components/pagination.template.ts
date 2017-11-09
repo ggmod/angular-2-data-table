@@ -31,11 +31,12 @@ export const PAGINATION_TEMPLATE = `
                     </div>
                 </div>
             </div>
-            <button *ngIf="show_numbers"
-                *ngFor="let i of createPageRange(dataTable.lastPage)"
-                [disabled]="i == page"
-                (click)="page = i"
-                class="btn btn-default">{{ i }}</button>
+            <div class="pagination-page" *ngIf="show_numbers">
+                <button *ngFor="let i of createPageRange(dataTable.maxPage())"
+                    [disabled]="i == page"
+                    (click)="page = i"
+                    class="btn btn-default">{{ i }}</button>
+            </div>
             <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageForward()" class="btn btn-default pagination-nextpage">&rsaquo;</button>
             <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageLast()" class="btn btn-default pagination-lastpage">&raquo;</button>
         </div>
