@@ -1,4 +1,4 @@
-import { Component, Inject, forwardRef } from '@angular/core';
+import { Component, Inject, forwardRef, Input } from '@angular/core';
 import { DataTable } from './table.component';
 import { PAGINATION_TEMPLATE } from './pagination.template';
 import { PAGINATION_STYLE } from "./pagination.style";
@@ -11,6 +11,11 @@ import { PAGINATION_STYLE } from "./pagination.style";
   styles: [PAGINATION_STYLE]
 })
 export class DataTablePagination {
+
+    @Input() show_range = false;
+    @Input() show_limit = false;
+    @Input() show_input = false;
+    @Input() show_numbers = true;
 
     constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {}
 
@@ -48,5 +53,15 @@ export class DataTablePagination {
 
     set page(value) {
         this.dataTable.page = Number(<any>value);
+    }
+
+    createPageRange(number): any[] {
+        let items: number[] = [];
+        if (number > 1) {
+            for (let i = 1; i <= number; i++) {
+                items.push(i);
+            }
+        }
+        return items;
     }
 }
