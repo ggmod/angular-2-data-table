@@ -58,7 +58,7 @@ export class DataTablePagination {
 
     hasPrevious(number, page) {
         const difference = this.getDifference();
-        if ((page - difference) >= 1) {
+        if ((page - difference) > 1) {
             return true;
         }
         return false;
