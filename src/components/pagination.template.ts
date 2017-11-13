@@ -32,7 +32,7 @@ export const PAGINATION_TEMPLATE = `
                 </div>
             </div>
             <div class="pagination-page" *ngIf="show_numbers">
-                <button *ngFor="let i of createPageRange(maxPage)"
+                <button *ngFor="let i of createPageRange(maxPage,page)"
                     [disabled]="i == page"
                     (click)="page = i"
                     class="btn btn-default">{{ i }}</button>

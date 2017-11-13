@@ -1,14 +1,14 @@
-import { Component, Inject, forwardRef, Input } from '@angular/core';
-import { DataTable } from './table.component';
-import { PAGINATION_TEMPLATE } from './pagination.template';
-import { PAGINATION_STYLE } from "./pagination.style";
+import {Component, Inject, forwardRef, Input} from '@angular/core';
+import {DataTable} from './table.component';
+import {PAGINATION_TEMPLATE} from './pagination.template';
+import {PAGINATION_STYLE} from "./pagination.style";
 
 
 @Component({
     moduleId: module.id,
-  selector: 'data-table-pagination',
-  template: PAGINATION_TEMPLATE,
-  styles: [PAGINATION_STYLE]
+    selector: 'data-table-pagination',
+    template: PAGINATION_TEMPLATE,
+    styles: [PAGINATION_STYLE]
 })
 export class DataTablePagination {
 
@@ -17,7 +17,8 @@ export class DataTablePagination {
     @Input() show_input = false;
     @Input() show_numbers = true;
 
-    constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {}
+    constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {
+    }
 
     pageBack() {
         this.dataTable.offset -= Math.min(this.dataTable.limit, this.dataTable.offset);
@@ -55,10 +56,18 @@ export class DataTablePagination {
         this.dataTable.page = Number(<any>value);
     }
 
-    createPageRange(number): any[] {
+    createPageRange(number, page): any[] {
         let items: number[] = [];
         if (number > 1) {
-            for (let i = 1; i <= number; i++) {
+            let maxPage = number;
+            let minPage = 1;
+            if ((number - page) >= 3) {
+                maxPage = page + 3;
+            }
+            if ((page - 3) >= 1) {
+                minPage = page - 3;
+            }
+            for (let i = minPage; i <= maxPage; i++) {
                 items.push(i);
             }
         }
