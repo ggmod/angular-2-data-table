@@ -37,6 +37,8 @@ add in .angular-cli.json
 and for prodaction build use
 
 `ng build --prod --aot=false`
- 
+
+ ### Added numerical pagination support with 2 next and previous links 
+  
 #### Licensing
 MIT License
