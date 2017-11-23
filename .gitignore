@@ -3,3 +3,4 @@
 /.idea
 /typings
 npm-debug.log
+package-lock.json
