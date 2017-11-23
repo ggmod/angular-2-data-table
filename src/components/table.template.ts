@@ -47,6 +47,11 @@ export const TABLE_TEMPLATE = `
         <div class="loading-cover" *ngIf="showReloading && reloading"></div>
     </div>
 
-    <data-table-pagination *ngIf="pagination"></data-table-pagination>
+    <data-table-pagination
+        *ngIf="pagination"
+        [show_range]="pagination_range"
+        [show_limit]="pagination_limit"
+        [show_input]="pagination_input"
+        [show_numbers]="pagination_numbers"></data-table-pagination>
 </div>
 `;

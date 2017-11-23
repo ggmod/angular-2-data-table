@@ -17,6 +17,8 @@ The templates use bootstrap CSS class names, so the component requires a bootstr
 
 Check out the [demo](https://ggmod.github.io/angular-2-data-table-demo) and its [code](https://github.com/MIt9/angular-4-data-table-demo) for examples of how to use it. 
 
+Demo for pagination with seperate page numbers will be added soon
+
 ## Installing:
 `npm install angular-4-data-table --save`
 
@@ -35,6 +37,8 @@ add in .angular-cli.json
 and for prodaction build use
 
 `ng build --prod --aot=false`
- 
+
+ ### Added numerical pagination support with 2 next and previous links 
+  
 #### Licensing
 MIT License

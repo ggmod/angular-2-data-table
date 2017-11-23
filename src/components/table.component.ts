@@ -46,6 +46,10 @@ export class DataTable implements DataTableParams, OnInit {
     @Input() headerTitle: string;
     @Input() header = true;
     @Input() pagination = true;
+    @Input() pagination_range = false;
+    @Input() pagination_limit = false;
+    @Input() pagination_input = false;
+    @Input() pagination_numbers = true;
     @Input() indexColumn = true;
     @Input() indexColumnHeader = '';
     @Input() rowColors: RowCallback;
