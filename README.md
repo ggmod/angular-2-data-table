@@ -1,6 +1,6 @@
 ## Angular 4 Data Table
 
-It is fork of this package [https://github.com/MIt9/angular-4-data-table] (https://github.com/MIt9/angular-4-data-table)
+It is fork of this package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
 
 A simple Angular 4 data table, with built-in solutions for features including:
 
@@ -20,7 +20,7 @@ Check out the [demo](https://ggmod.github.io/angular-2-data-table-demo) and its 
 Demo for pagination with seperate page numbers will be added soon
 
 ## Installing:
-`npm install faisal-iqbal/angular-4-data-table --save`
+`npm install angular-4-data-table --save`
 
 ## Prodaction (Minification)
 Some times can be some problam with it. to fix it
