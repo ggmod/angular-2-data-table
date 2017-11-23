@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var column_component_1 = require("./column.component");
 var row_component_1 = require("./row.component");
@@ -20,6 +21,10 @@ var DataTable = (function () {
         this._items = [];
         this.header = true;
         this.pagination = true;
+        this.pagination_range = false;
+        this.pagination_limit = false;
+        this.pagination_input = false;
+        this.pagination_numbers = true;
         this.indexColumn = true;
         this.indexColumnHeader = '';
         this.selectColumn = false;
@@ -352,6 +357,22 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], DataTable.prototype, "pagination", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTable.prototype, "pagination_range", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTable.prototype, "pagination_limit", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTable.prototype, "pagination_input", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTable.prototype, "pagination_numbers", void 0);
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)

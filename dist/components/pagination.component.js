@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var table_component_1 = require("./table.component");
 var pagination_template_1 = require("./pagination.template");
@@ -18,6 +19,10 @@ var pagination_style_1 = require("./pagination.style");
 var DataTablePagination = (function () {
     function DataTablePagination(dataTable) {
         this.dataTable = dataTable;
+        this.show_range = false;
+        this.show_limit = false;
+        this.show_input = false;
+        this.show_numbers = true;
     }
     DataTablePagination.prototype.pageBack = function () {
         this.dataTable.offset -= Math.min(this.dataTable.limit, this.dataTable.offset);
@@ -58,8 +63,60 @@ var DataTablePagination = (function () {
         enumerable: true,
         configurable: true
     });
+    DataTablePagination.prototype.hasPrevious = function (number, page) {
+        var difference = this.getDifference();
+        if ((page - difference) > 1) {
+            return true;
+        }
+        return false;
+    };
+    DataTablePagination.prototype.hasNext = function (number, page) {
+        var difference = this.getDifference();
+        if ((number - page) > difference) {
+            return true;
+        }
+        return false;
+    };
+    DataTablePagination.prototype.getDifference = function () {
+        var difference = 2;
+        return difference;
+    };
+    DataTablePagination.prototype.createPageRange = function (number, page) {
+        var items = [];
+        if (number > 1) {
+            var difference = this.getDifference();
+            var maxPage = number;
+            var minPage = 1;
+            if ((number - page) >= difference) {
+                maxPage = page + difference;
+            }
+            if ((page - difference) >= 1) {
+                minPage = page - difference;
+            }
+            for (var i = minPage; i <= maxPage; i++) {
+                items.push(i);
+            }
+        }
+        return items;
+    };
     return DataTablePagination;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTablePagination.prototype, "show_range", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTablePagination.prototype, "show_limit", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTablePagination.prototype, "show_input", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], DataTablePagination.prototype, "show_numbers", void 0);
 DataTablePagination = __decorate([
     core_1.Component({
         moduleId: module.id,

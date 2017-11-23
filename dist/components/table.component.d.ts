@@ -14,6 +14,10 @@ export declare class DataTable implements DataTableParams, OnInit {
     headerTitle: string;
     header: boolean;
     pagination: boolean;
+    pagination_range: boolean;
+    pagination_limit: boolean;
+    pagination_input: boolean;
+    pagination_numbers: boolean;
     indexColumn: boolean;
     indexColumnHeader: string;
     rowColors: RowCallback;
