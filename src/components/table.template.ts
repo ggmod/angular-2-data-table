@@ -30,7 +30,7 @@ export const TABLE_TEMPLATE = `
                 </tr>
             </thead>
             <tbody *ngFor="let item of items; let index=index" class="data-table-row-wrapper"
-                   dataTableRow #row [item]="item" [index]="index" (selectedChange)="onRowSelectChanged(row)">
+                   dataTableRow #row [item]="item" [index]="index" (rowClicked)="rowClicked($event.row, $event.event)" (rowDoubleClicked)="rowDoubleClicked($event.row, $event.event)" (selectedChange)="onRowSelectChanged(row)">
             </tbody>
             <tbody class="substitute-rows" *ngIf="pagination && substituteRows">
                 <tr *ngFor="let item of substituteItems, let index = index"

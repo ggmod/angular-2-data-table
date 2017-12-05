@@ -17,6 +17,9 @@ export class DataTableRow implements OnDestroy {
     @Input() item: any;
     @Input() index: number;
 
+    @Output() rowClicked: EventEmitter<any> = new EventEmitter();
+    @Output() rowDoubleClicked: EventEmitter<any> = new EventEmitter();
+
     expanded: boolean;
 
     // row selection:
@@ -32,6 +35,15 @@ export class DataTableRow implements OnDestroy {
     set selected(selected) {
         this._selected = selected;
         this.selectedChange.emit(selected);
+    }
+
+    // Emits
+    onRowClicked(row, event) {
+        this.rowClicked.emit({row, event});
+    }
+
+    onRowDoubleClicked(row, event) {
+        this.rowClicked.emit({row, event});
     }
 
     // other:

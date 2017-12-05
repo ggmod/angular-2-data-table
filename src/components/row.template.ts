@@ -6,8 +6,8 @@ export const ROW_TEMPLATE = `
     [class.row-even]="index % 2 === 1"
     [class.selected]="selected"
     [class.clickable]="dataTable.selectOnRowClick"
-    (dblclick)="dataTable.rowDoubleClicked(_this, $event)"
-    (click)="dataTable.rowClicked(_this, $event)"
+    (dblclick)="onRowDoubleClicked(_this, $event)"
+    (click)="onRowClicked(_this, $event)"
     >
     <td [hide]="!dataTable.expandColumnVisible" (click)="expanded = !expanded; $event.stopPropagation()" class="row-expand-button">
         <span class="glyphicon glyphicon-triangle-right" [hide]="expanded"></span>

@@ -15,8 +15,8 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "serve": "tsc -w"
+    "build": "rm -rf dist/ && tsc",
+    "serve": "rm -rf dist/ && tsc -w"
   },
   "repository": {
     "type": "git",

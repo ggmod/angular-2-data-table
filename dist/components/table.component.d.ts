@@ -61,14 +61,14 @@ export declare class DataTable implements DataTableParams, OnInit {
     rowDoubleClick: EventEmitter<{}>;
     headerClick: EventEmitter<{}>;
     cellClick: EventEmitter<{}>;
-    private rowClicked(row, event);
-    private rowDoubleClicked(row, event);
+    rowClicked(row: DataTableRow, event: any): void;
+    rowDoubleClicked(row: DataTableRow, event: any): void;
     private headerClicked(column, event);
     private cellClicked(column, row, event);
     private _getRemoteParameters();
     private sortColumn(column);
     readonly columnCount: number;
-    private getRowColor(item, index, row);
+    getRowColor(item: any, index: number, row: DataTableRow): string;
     selectedRow: DataTableRow;
     selectedRows: DataTableRow[];
     private _selectAllCheckbox;

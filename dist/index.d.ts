@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { DataTable } from './components/table.component';
 import { DataTableColumn } from './components/column.component';
 import { DataTableRow } from './components/row.component';
@@ -12,6 +11,5 @@ import { defaultTranslations } from './types/default-translations.type';
 export * from './tools/data-table-resource';
 export { DataTable, DataTableColumn, DataTableRow, DataTablePagination, DataTableHeader, DataTableTranslations, CellCallback, RowCallback, DataTableParams, defaultTranslations };
 export declare const DATA_TABLE_DIRECTIVES: (typeof DataTable | typeof DataTableColumn)[];
-@NgModule()
 export declare class DataTableModule {
 }
