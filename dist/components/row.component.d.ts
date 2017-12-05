@@ -16,5 +16,5 @@ export declare class DataTableRow implements OnDestroy {
     getTooltip(): string;
     constructor(dataTable: DataTable);
     ngOnDestroy(): void;
-    private _this;
+    readonly _this: this;
 }

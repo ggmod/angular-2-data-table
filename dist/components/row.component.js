@@ -21,7 +21,6 @@ var DataTableRow = (function () {
         this.rowClicked = new core_1.EventEmitter();
         this.rowDoubleClicked = new core_1.EventEmitter();
         this.selectedChange = new core_1.EventEmitter();
-        this._this = this; // FIXME is there no template keyword for this in angular 2?
     }
     Object.defineProperty(DataTableRow.prototype, "selected", {
         get: function () {
@@ -63,6 +62,13 @@ var DataTableRow = (function () {
     DataTableRow.prototype.ngOnDestroy = function () {
         this.selected = false;
     };
+    Object.defineProperty(DataTableRow.prototype, "_this", {
+        get: function () {
+            return this;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return DataTableRow;
 }());
 __decorate([
