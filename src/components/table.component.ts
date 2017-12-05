@@ -4,9 +4,10 @@ import {
 } from '@angular/core';
 import { DataTableColumn } from './column.component';
 import { DataTableRow } from './row.component';
-import { DataTableParams } from './types';
-import { RowCallback } from './types';
-import { DataTableTranslations, defaultTranslations } from './types';
+import { DataTableParams } from '../types/data-table-params.type';
+import { RowCallback } from '../types/row-callback.type';
+import { DataTableTranslations } from '../types/data-table-translations.type';
+import { defaultTranslations } from '../types/default-translations.type';
 import { drag } from '../utils/drag';
 import { TABLE_TEMPLATE } from './table.template';
 import { TABLE_STYLE } from "./table.style";
@@ -14,6 +15,7 @@ import { TABLE_STYLE } from "./table.style";
 
 
 @Component({
+    moduleId: module.id,
   selector: 'data-table',
   template: TABLE_TEMPLATE,
   styles: [TABLE_STYLE]
@@ -44,6 +46,10 @@ export class DataTable implements DataTableParams, OnInit {
     @Input() headerTitle: string;
     @Input() header = true;
     @Input() pagination = true;
+    @Input() pagination_range = false;
+    @Input() pagination_limit = false;
+    @Input() pagination_input = false;
+    @Input() pagination_numbers = true;
     @Input() indexColumn = true;
     @Input() indexColumnHeader = '';
     @Input() rowColors: RowCallback;
@@ -214,11 +220,11 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
 
-    private rowClicked(row: DataTableRow, event) {
+    rowClicked(row: DataTableRow, event) {
         this.rowClick.emit({ row, event });
     }
 
-    private rowDoubleClicked(row: DataTableRow, event) {
+    rowDoubleClicked(row: DataTableRow, event) {
         this.rowDoubleClick.emit({ row, event });
     }
 
@@ -268,7 +274,7 @@ export class DataTable implements DataTableParams, OnInit {
         return count;
     }
 
-    private getRowColor(item: any, index: number, row: DataTableRow) {
+    getRowColor(item: any, index: number, row: DataTableRow) {
         if (this.rowColors !== undefined) {
             return (<RowCallback>this.rowColors)(item, row, index);
         }
