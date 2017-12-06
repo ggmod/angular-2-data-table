@@ -62,6 +62,7 @@ export class DataTable implements DataTableParams, OnInit {
     @Input() selectOnRowClick = false;
     @Input() autoReload = true;
     @Input() showReloading = false;
+    @Input() noDataMessage: string;
 
     // UI state without input:
 
