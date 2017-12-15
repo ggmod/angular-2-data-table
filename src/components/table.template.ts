@@ -32,6 +32,11 @@ export const TABLE_TEMPLATE = `
             <tbody *ngFor="let item of items; let index=index" class="data-table-row-wrapper"
                    dataTableRow #row [item]="item" [index]="index" (selectedChange)="onRowSelectChanged(row)">
             </tbody>
+            <tbody *ngIf="itemCount === 0 && noDataMessage">
+                <tr>
+                    <td [attr.colspan]="columnCount">{{ noDataMessage }}</td>
+                </tr>
+            </tbody>
             <tbody class="substitute-rows" *ngIf="pagination && substituteRows">
                 <tr *ngFor="let item of substituteItems, let index = index"
                     [class.row-odd]="(index + items.length) % 2 === 0"
