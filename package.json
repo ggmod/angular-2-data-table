@@ -1,6 +1,6 @@
 {
   "name": "angular-4-data-table",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "An Angular 4 data table, with pagination, sorting, expandable rows etc.",
   "keywords": [
     "angular",
@@ -12,8 +12,8 @@
     "data table",
     "pagination"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "src/index.ts",
+  "typings": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "serve": "tsc -w"
