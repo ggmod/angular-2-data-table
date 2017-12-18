@@ -26,13 +26,7 @@ Demo for pagination with seperate page numbers will be added soon
 Some times can be some problam with it. to fix it
 use import like this
 
-`import { DataTableModule } from 'angular-4-data-table/src/index';`
-
-add in .angular-cli.json
-
-`"scripts": [
-        "../node_modules/angular-4-data-table/dist/index.js"
-],`
+`import { DataTableModule } from 'angular-4-data-table';`
 
 and for prodaction build use
 
