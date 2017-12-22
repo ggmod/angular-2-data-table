@@ -3,11 +3,13 @@ export const HEADER_TEMPLATE = `
     <h4 class="title" [textContent]="dataTable.headerTitle"></h4>
     <div class="button-panel">
         <button type="button" class="btn btn-default btn-sm refresh-button"
-            (click)="dataTable.reloadItems()">
+            (click)="dataTable.reloadItems()" 
+            [attr.aria-label]="dataTable.translations.headerReload" [title]="dataTable.translations.headerReload">
             <span class="glyphicon glyphicon-refresh"></span>
         </button>
         <button type="button" class="btn btn-default btn-sm column-selector-button" [class.active]="columnSelectorOpen"
-            (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" >
+            (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" 
+            [attr.aria-label]="dataTable.translations.headerColumnSelector" [title]="dataTable.translations.headerColumnSelector">
             <span class="glyphicon glyphicon-list"></span>
         </button>
         <div class="column-selector-wrapper" (click)="$event.stopPropagation()">

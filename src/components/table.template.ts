@@ -11,10 +11,11 @@ export const TABLE_TEMPLATE = `
                         <span [textContent]="indexColumnHeader"></span>
                     </th>
                     <th [hide]="!selectColumnVisible" class="select-column-header">
-                        <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox"/>
+                        <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox" [attr.aria-label]="translations.selectAllRows" />
                     </th>
                     <th *ngFor="let column of columns" #th [hide]="!column.visible" 
-                    	(click)="headerClicked(column, $event)" (keydown.enter)="headerClicked(column, $event)" (keydown.space)="headerClicked(column, $event)"
+                    	  (click)="headerClicked(column, $event)" 
+                    	  (keydown.enter)="headerClicked(column, $event)" (keydown.space)="headerClicked(column, $event)"
                         [class.sortable]="column.sortable" [class.resizable]="column.resizable"
                         [ngClass]="column.styleClassObject" class="column-header" [style.width]="column.width | px"
                         [attr.aria-sort]="column.sortable ? (column.property === sortBy ? (sortAsc ? 'ascending' : 'descending') : 'none') : null"
