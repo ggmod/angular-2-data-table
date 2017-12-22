@@ -6,14 +6,14 @@ export const TABLE_TEMPLATE = `
         <table class="table table-condensed table-bordered data-table">
             <thead>
                 <tr>
-                    <th [hide]="!expandColumnVisible" class="expand-column-header">
-                    <th [hide]="!indexColumnVisible" class="index-column-header">
+                    <th scope="col" [hide]="!expandColumnVisible" class="expand-column-header">
+                    <th scope="col" [hide]="!indexColumnVisible" class="index-column-header">
                         <span [textContent]="indexColumnHeader"></span>
                     </th>
-                    <th [hide]="!selectColumnVisible" class="select-column-header">
+                    <th scope="col" [hide]="!selectColumnVisible" class="select-column-header">
                         <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox" [attr.aria-label]="translations.selectAllRows" />
                     </th>
-                    <th *ngFor="let column of columns" #th [hide]="!column.visible" 
+                    <th scope="col" *ngFor="let column of columns" #th [hide]="!column.visible" 
                     	  (click)="headerClicked(column, $event)" 
                     	  (keydown.enter)="headerClicked(column, $event)" (keydown.space)="headerClicked(column, $event)"
                         [class.sortable]="column.sortable" [class.resizable]="column.resizable"
