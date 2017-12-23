@@ -11,11 +11,14 @@ import { DataTableHeader } from './components/header.component';
 import { PixelConverter } from './utils/px';
 import { Hide } from './utils/hide';
 import { MinPipe } from './utils/min';
-
-export * from './components/types';
+import { DataTableTranslations } from './types/data-table-translations.type';
+import { CellCallback } from './types/cell-callback.type';
+import { RowCallback } from './types/row-callback.type';
+import { DataTableParams } from './types/data-table-params.type';
+import { defaultTranslations } from './types/default-translations.type';
 export * from './tools/data-table-resource';
-
-export { DataTable, DataTableColumn, DataTableRow, DataTablePagination, DataTableHeader };
+export { DataTable, DataTableColumn, DataTableRow, DataTablePagination,
+          DataTableHeader, DataTableTranslations, CellCallback, RowCallback, DataTableParams, defaultTranslations};
 export const DATA_TABLE_DIRECTIVES = [ DataTable, DataTableColumn ];
 
 
