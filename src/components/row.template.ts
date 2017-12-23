@@ -9,9 +9,11 @@ export const ROW_TEMPLATE = `
     (dblclick)="dataTable.rowDoubleClicked(_this, $event)"
     (click)="dataTable.rowClicked(_this, $event)"
     >
-    <td [hide]="!dataTable.expandColumnVisible" (click)="expanded = !expanded; $event.stopPropagation()" class="row-expand-button">
-        <span class="glyphicon glyphicon-triangle-right" [hide]="expanded"></span>
-        <span class="glyphicon glyphicon-triangle-bottom" [hide]="!expanded"></span>
+    <td [hide]="!dataTable.expandColumnVisible">
+        <div tabindex="0" role="button" (click)="expanded = !expanded; $event.stopPropagation()" class="row-expand-button"
+            [attr.aria-expanded]="expanded" [title]="dataTable.translations.expandRow" [attr.aria-label]="dataTable.translations.expandRow">
+            <span class="glyphicon" [ngClass]="{'glyphicon-triangle-right': !expanded, 'glyphicon-triangle-bottom': expanded}" aria-hidden="true"></span>
+        </div>
     </td>
     <td [hide]="!dataTable.indexColumnVisible" class="index-column" [textContent]="displayIndex"></td>
     <td [hide]="!dataTable.selectColumnVisible" class="select-column">
