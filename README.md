@@ -1,4 +1,5 @@
 ## Angular 2 Data Table
+### ** Updated for Angular 5 [here](https://github.com/ggmod/angular-5-data-table). This repo will not be updated **
 
 A simple Angular 2 data table, with built-in solutions for features including:
 
