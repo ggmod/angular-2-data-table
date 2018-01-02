@@ -275,7 +275,7 @@ export class DataTable implements DataTableParams, OnInit {
 		return count;
 	}
 
-	private getRowColor(item: any, index: number, row: DataTableRow) {
+	public getRowColor(item: any, index: number, row: DataTableRow) {
 		if (this.rowColors !== undefined) {
 			return (<RowCallback>this.rowColors)(item, row, index);
 		}
