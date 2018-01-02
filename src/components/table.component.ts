@@ -219,11 +219,11 @@ export class DataTable implements DataTableParams, OnInit {
 	@Output() headerClick = new EventEmitter();
 	@Output() cellClick = new EventEmitter();
 
-	private rowClicked(row: DataTableRow, event) {
+	public rowClicked(row: DataTableRow, event) {
 		this.rowClick.emit({ row, event });
 	}
 
-	private rowDoubleClicked(row: DataTableRow, event) {
+	public rowDoubleClicked(row: DataTableRow, event) {
 		this.rowDoubleClick.emit({ row, event });
 	}
 
