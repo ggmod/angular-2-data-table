@@ -1,0 +1,37 @@
+{
+  "name": "angular-datatable",
+  "version": "2.2.1",
+  "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
+  "main": "bundles/datatable.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "keywords": [
+    "angular",
+    "angular2",
+    "Angular 2",
+    "ng2",
+    "ngx",
+    "datatable",
+    "data-table",
+    "data table",
+    "pagination"
+  ],
+  "author": "BrieBug Developers <developers@briebug.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://git@github.com/briebug/angular-datatable.git"
+  },
+  "homepage": "https://github.com/briebug/angular-datatable",
+  "bugs": {
+    "url": "https://github.com/briebug/angular-datatable/issues"
+  },
+  "peerDependencies": {
+    "@angular/core": "^2.4.0",
+    "@angular/common": "^2.4.0",
+    "@angular/forms": "^2.4.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.1",
+    "zone.js": "^0.7.2"
+  }
+}

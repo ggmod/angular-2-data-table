@@ -19,10 +19,10 @@ export const TABLE_TEMPLATE = `
                         <span *ngIf="!column.headerTemplate" [textContent]="column.header"></span>
                         <span *ngIf="column.headerTemplate" [ngTemplateOutlet]="column.headerTemplate" [ngOutletContext]="{column: column}"></span>
                         <span class="column-sort-icon" *ngIf="column.sortable">
-                            <span class="glyphicon glyphicon-sort column-sortable-icon" [hide]="column.property === sortBy"></span>
+                            <i class="fa fa-sort column-sortable-icon" [hide]="column.property === sortBy"></i>
                             <span [hide]="column.property !== sortBy">
-                                <span class="glyphicon glyphicon-triangle-top" [hide]="sortAsc"></span>
-                                <span class="glyphicon glyphicon-triangle-bottom" [hide]="!sortAsc"></span>
+                                <i class="fa fa-sort-asc" [hide]="sortAsc"></i>
+                                <i class="fa fa-sort-desc" [hide]="!sortAsc"></i>
                             </span>
                         </span>
                         <span *ngIf="column.resizable" class="column-resize-handle" (mousedown)="resizeColumnStart($event, column, th)"></span>
@@ -30,7 +30,8 @@ export const TABLE_TEMPLATE = `
                 </tr>
             </thead>
             <tbody *ngFor="let item of items; let index=index" class="data-table-row-wrapper"
-                   dataTableRow #row [item]="item" [index]="index" (selectedChange)="onRowSelectChanged(row)">
+                   dataTableRow #row [item]="item" [index]="index" (selectedChange)="onRowSelectChanged(row)"
+                   (expandRowChange)="onRowExpandChanged(row)">
             </tbody>
             <tbody class="substitute-rows" *ngIf="pagination && substituteRows">
                 <tr *ngFor="let item of substituteItems, let index = index"

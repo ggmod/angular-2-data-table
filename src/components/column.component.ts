@@ -1,10 +1,10 @@
 import { Directive, Input, ContentChild, OnInit } from '@angular/core';
 import { DataTableRow } from './row.component';
-import { CellCallback } from './types';
+import { CellCallback, DataTableSortCallback } from './types';
 
 
 @Directive({
-  selector: 'data-table-column'
+    selector: 'data-table-column'
 })
 export class DataTableColumn implements OnInit {
 
@@ -15,13 +15,14 @@ export class DataTableColumn implements OnInit {
     @Input() property: string;
     @Input() styleClass: string;
     @Input() cellColors: CellCallback;
+    @Input() customSort: DataTableSortCallback;
 
     // init and state:
     @Input() width: number | string;
     @Input() visible = true;
 
-    @ContentChild('dataTableCell') cellTemplate;
-    @ContentChild('dataTableHeader') headerTemplate;
+    @ContentChild('dataTableCell') cellTemplate: any;
+    @ContentChild('dataTableHeader') headerTemplate: any;
 
     getCellColor(row: DataTableRow, index: number) {
         if (this.cellColors !== undefined) {

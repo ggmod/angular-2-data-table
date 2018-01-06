@@ -1,23 +1,33 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "declaration": true,
-    "emitDecoratorMetadata": true,
+    "stripInternal": true,
     "experimentalDecorators": true,
-    "mapRoot": "/",
-    "module": "commonjs",
+    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "module": "es2015",
     "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noImplicitAny": false,
-    "outDir": "dist/",
-    "rootDir": "src/",
+    "paths": {
+      "@angular/core": ["node_modules/@angular/core"],
+      "@angular/common": ["node_modules/@angular/common"],
+      "@angular/forms": ["node_modules/@angular/forms"]
+    },
+    "rootDir": ".",
+    "outDir": "dist",
     "sourceMap": true,
+    "inlineSources": true,
     "target": "es5",
-    "inlineSources": true
+    "skipLibCheck": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ]
   },
-  "exclude": [
-    "dist",
-    "node_modules",
+  "files": [
     "index.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true
+  }
 }

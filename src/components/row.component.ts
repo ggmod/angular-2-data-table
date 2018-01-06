@@ -23,6 +23,7 @@ export class DataTableRow implements OnDestroy {
     private _selected: boolean;
 
     @Output() selectedChange = new EventEmitter();
+    @Output() expandRowChange = new EventEmitter();
 
     get selected() {
         return this._selected;
@@ -48,6 +49,12 @@ export class DataTableRow implements OnDestroy {
             return this.dataTable.rowTooltip(this.item, this, this.index);
         }
         return '';
+    }
+
+    expandRow(event: Event) {
+        event.stopPropagation();
+        this.expanded = !this.expanded;
+        this.expandRowChange.emit();
     }
 
     constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {}

@@ -1,7 +1,9 @@
 {
-  "name": "angular-2-data-table",
-  "version": "0.1.2",
-  "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc.",
+  "name": "angular-datatable",
+  "version": "2.2.1",
+  "description": "An Angular 2 datatable, with pagination, sorting, expandable rows etc.",
+  "main": "dist/bundles/angular-datatable.umd.js",
+  "module": "dist/index.js",
   "keywords": [
     "angular",
     "angular2",
@@ -12,27 +14,47 @@
     "data table",
     "pagination"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist/* && tsc",
-    "serve": "rm -rf dist/ && tsc -w",
-    "prepublish": "npm run build"
+    "cleanup": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
+    "bundling": "rollup -c",
+    "minify": "uglifyjs dist/bundles/angular-datatable.umd.js --screw-ie8 --compress --mangle --comments --output dist/bundles/angular-datatable.umd.min.js",
+    "copy": "copyfiles LICENSE README.md dist",
+    "build": "npm run cleanup && ngc && npm run bundling && npm run minify && npm run copy",
+    "build-only": "npm run cleanup && ngc",
+    "publish-to-npm": "cd dist && npm publish",
+    "link": "cd dist && npm link && cd .."
   },
   "repository": {
     "type": "git",
-    "url": "git://git@github.com/ggmod/angular-2-data-table.git"
+    "url": "git://git@github.com/briebugconsulting/angular-datatable.git"
   },
-  "peerDependencies": {
-    "@angular/core": "^2.0.0"
-  },
-  "author": "ggmod <ggmod64@gmail.com>",
+  "author": "BrieBug Developers <developers@briebug.com>",
   "license": "MIT",
+  "dependencies": {
+    "@angular/common": "^2.4.0",
+    "@angular/core": "^2.4.0",
+    "@angular/forms": "^2.4.0",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.3",
+    "zone.js": "^0.7.2"
+  },
   "devDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/core": "^2.0.0",
-    "@angular/forms": "^2.0.0",
-    "rxjs": "^5.0.0-beta.12",
-    "typescript": "^2.0.2"
+    "@angular/compiler": "^2.4.0",
+    "@angular/compiler-cli": "^2.4.0",
+    "copyfiles": "^1.2.0",
+    "cz-conventional-changelog": "1.2.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.37.0",
+    "typescript": "~2.0.10",
+    "uglify-js": "^2.7.5",
+    "validate-commit-msg": "2.8.2"
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
