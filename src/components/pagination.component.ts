@@ -5,7 +5,7 @@ import {PAGINATION_STYLE} from "./pagination.style";
 
 
 @Component({
-    moduleId: module.id,
+    moduleId: module.id +'',
     selector: 'data-table-pagination',
     template: PAGINATION_TEMPLATE,
     styles: [PAGINATION_STYLE]
