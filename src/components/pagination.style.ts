@@ -2,6 +2,8 @@ export const PAGINATION_STYLE = `
 .pagination-box {
     position: relative;
     margin-top: -10px;
+    display: block;
+    height: 30;
 }
 .pagination-range {
     margin-top: 7px;
@@ -21,12 +23,13 @@ export const PAGINATION_STYLE = `
     margin-right: 25px;
     display: inline-table;
     width: 150px;
+    float: left;
 }
 .pagination-pages {
     display: inline-block;
 }
 .pagination-page {
-    width: 110px;
+    width: 102px;
     display: inline-table;
 }
 .pagination-box button {

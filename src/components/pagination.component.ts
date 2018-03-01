@@ -56,38 +56,23 @@ export class DataTablePagination {
         this.dataTable.page = Number(<any>value);
     }
 
-    hasPrevious(number, page) {
-        const difference = this.getDifference();
-        if ((page - difference) > 1) {
-            return true;
-        }
-        return false;
-    }
-
-    hasNext(number, page) {
-        const difference = this.getDifference();
-        if ((number - page) > difference) {
-            return true;
-        }
-        return false;
-    }
-
-    getDifference() {
-        const difference = 2;
-        return difference;
-    }
-
     createPageRange(number, page): any[] {
+        const displayedPage = 3;
         let items: number[] = [];
         if (number > 1) {
-            const difference = this.getDifference();
             let maxPage = number;
             let minPage = 1;
-            if ((number - page) >= difference) {
-                maxPage = page + difference;
-            }
-            if ((page - difference) >= 1) {
-                minPage = page - difference;
+            if (page === 1 && maxPage >= displayedPage) {
+                maxPage = 3;
+            } else if (page > 1 && maxPage > page + 1) {
+                minPage = page - 1;
+                maxPage = page + 1;
+            } else if (page > 2 && maxPage > page) {
+                minPage = page - 1;
+                maxPage = page + 1;
+            } else  if (page > 2 && maxPage === page) {
+                minPage = page - 2;
+                maxPage = page;
             }
             for (let i = minPage; i <= maxPage; i++) {
                 items.push(i);

@@ -17,7 +17,7 @@ export const PAGINATION_TEMPLATE = `
                        (keyup.enter)="limit = limitInput.value" (keyup.esc)="limitInput.value = limit"/>
             </div>
         </div>
-        <div class=" pagination-pages">
+        <div class=" pagination-pages"  *ngIf="maxPage > 1">
             <button [disabled]="dataTable.offset <= 0" (click)="pageFirst()" class="btn btn-default pagination-firstpage">&laquo;</button>
             <button [disabled]="dataTable.offset <= 0" (click)="pageBack()" class="btn btn-default pagination-prevpage">&lsaquo;</button>
             <div class="pagination-page" *ngIf="show_input">
@@ -31,14 +31,12 @@ export const PAGINATION_TEMPLATE = `
                     </div>
                 </div>
             </div>
-            <button *ngIf="hasPrevious(maxPage,page)" [disabled]="true" (click)="false" class="btn btn-default hasPrevious">...</button>
             <div class="pagination-page" *ngIf="show_numbers">
                 <button *ngFor="let i of createPageRange(maxPage,page)"
                     [disabled]="i == page"
                     (click)="page = i"
                     class="btn btn-default">{{ i }}</button>
             </div>
-            <button *ngIf="hasNext(maxPage,page)" [disabled]="true" (click)="false" class="btn btn-default hasNext">...</button>
             <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageForward()" class="btn btn-default pagination-nextpage">&rsaquo;</button>
             <button [disabled]="(dataTable.offset + dataTable.limit) >= dataTable.itemCount" (click)="pageLast()" class="btn btn-default pagination-lastpage">&raquo;</button>
         </div>
