@@ -3,7 +3,7 @@ export const PAGINATION_STYLE = `
     position: relative;
     margin-top: -10px;
     display: block;
-    height: 30;
+    height: 30px;
 }
 .pagination-range {
     margin-top: 7px;
